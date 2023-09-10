@@ -1,14 +1,24 @@
 
-class Operacion {   // se recomienda guardarlo en un archivo .java separado
+
+public class Operacion {  
+    
+    
   public static double[][] suma(double [][]matA, double [][] matB) {
+     
+        int filasA = matA.length;
+        int columnasA = matA[0].length;
+        int filasB = matB.length;
+        int columnasB = matB[0].length;
+     
+        double[][] matR = new double[filasA][columnasA];
+        
+        if (filasA != filasB || columnasA != columnasB) {
 
-        int filasM = matA.length;
-        int columnasM = matA[0].length;
+            return new double[0][0];
 
-        double[][] matR = new double[filasM][columnasM];
-
-        for (int i = 0; i < filasM; i++) {
-            for (int j = 0; j < columnasM; j++) {
+        }
+        for (int i = 0; i < filasA; i++) {
+            for (int j = 0; j < columnasA; j++) {
                 matR[i][j] = matA[i][j] + matB[i][j];
             }
         } 
@@ -18,15 +28,22 @@ class Operacion {   // se recomienda guardarlo en un archivo .java separado
 
   public static double[][] producto(double [][]matA, double [][]matB) {
     
-      int filasMA = matA.length;
-      int columnasMA = matA[0].length;
-      int columnasMB = matA[0].length;
+      int filasA = matA.length;
+      int columnasA = matA[0].length;
+      int filasB = matB.length;
+      int columnasB = matB[0].length;
       
-      double[][] matR = new double[filasMA][columnasMA];
+      double[][] matR = new double[filasA][columnasA];
       
-      for (int i = 0; i < filasMA; i++) {
-            for (int j = 0; j < columnasMB; j++) {
-                for (int k = 0; k < columnasMA; k++) {
+      if (columnasA != filasB) {
+
+            return new double[0][0];
+
+      }
+      
+      for (int i = 0; i < filasA; i++) {
+            for (int j = 0; j < columnasB; j++) {
+                for (int k = 0; k < columnasA; k++) {
                     matR[i][j] += matA[i][k] * matB[k][j];
                 }
             }
@@ -36,7 +53,43 @@ class Operacion {   // se recomienda guardarlo en un archivo .java separado
 
   }
 
-  // ... continuar con los demás métodos
+    public static double[][] EscalarXMatriz(double Escalar, double [][]matA) {
+        
+        int filasA = matA.length;
+        int columnasA = matA[0].length;
+        
+        
+        double[][] matR = new double[filasA][columnasA];
+        
+         for (int i = 0; i < filasA; i++) {
+            for (int j = 0; j < columnasA; j++) {
+                    matR[i][j] = Escalar * matA[i][j];
+                }
+            }
+         
+
+        return matR;
+        
+    }
+    
+    public static double[][] MatrizTranspuesta (double [][]matA) {
+        
+        int filasA = matA.length;
+        int columnasA = matA[0].length;
+        
+        double[][] matR = new double[filasA][columnasA];
+        
+         for (int i = 0; i < filasA; i++) {
+            for (int j = 0; j < columnasA; j++) {
+                    matR[j][i] = matA[i][j];
+                }
+            }
+         
+
+        return matR;
+        
+    }
+    
 }
 
 
