@@ -1,7 +1,7 @@
 
 import java.util.Arrays;
 import javax.swing.table.DefaultTableModel;
-
+import java.util.Comparator; 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -14,24 +14,9 @@ import javax.swing.table.DefaultTableModel;
 public class InterfaceConsecionarioV extends javax.swing.JFrame {
 
     DefaultTableModel Table = new DefaultTableModel();
-    
-    
-    
-    public class Carro{
-        
-        String Marca;
-        int Modelo;
-        String Color;
-        int Kilometraje;
 
-        public Carro(String Marca, int Modelo, String Color, int Kilometraje) {
-            this.Marca = Marca;
-            this.Modelo = Modelo;
-            this.Color = Color;
-            this.Kilometraje = Kilometraje;
-        }
-                
-    }
+ 
+  
     public InterfaceConsecionarioV() {
         initComponents();
         this.setLocationRelativeTo(null); 
@@ -75,98 +60,145 @@ public class InterfaceConsecionarioV extends javax.swing.JFrame {
         Table.addRow(new Object[]{
             
              
-            marca,AñoModelo.getText(), ColorAuto.getText(), Kilometraje.getText()});
+            marca, AñoModelo.getText(), ColorAuto.getText(), Kilometraje.getText()});
     }
     
     public void EliminarData(){
     
-    int fila = Tabla_de_Registro.getSelectedRow();
-    Table.removeRow(fila);
-}
-    //METODO BURBUJA  
-     public static double[] METDBurbuja(double[] Array) 
-    {
-        int l = Array.length;
-
-        double[] ArrayOrdenado = Arrays.copyOf(Array, l);
-
-        for (int i = 0; i < l - 1; i++) 
-        {
-            for (int j = 0; j < l - i - 1; j++) 
-            {
-                if (ArrayOrdenado[j] > ArrayOrdenado[j + 1]) 
-                {
-                    double ValorTemporal = ArrayOrdenado[j];
-                    ArrayOrdenado[j] = ArrayOrdenado[j + 1];
-                    ArrayOrdenado[j + 1] = ValorTemporal;
-
-                }
-            }
-        }
-
-        return ArrayOrdenado;
+        int fila = Tabla_de_Registro.getSelectedRow();
+        Table.removeRow(fila);
+    
     }
     
+    public void ActualizarData(){
+    
+        String marca = MarcasAutos.getSelectedItem().toString();
+
+        int fila = Tabla_de_Registro.getSelectedRow();
+        Table.setValueAt(marca, fila,0); 
+        Table.setValueAt(AñoModelo.getText(), fila,1); 
+        Table.setValueAt(ColorAuto.getText(), fila,2); 
+        Table.setValueAt(Kilometraje.getText(), fila,3);
+    
+    }
+    
+    public void LimpiarAll(){
+        
+        int filasTotales = Table.getRowCount();
+        
+        for(int i = 0; i<filasTotales; i++){
+            
+            Table.removeRow(0);
+        }
+    }
+    
+    
+    private int CriterioOrdenamiento = 0;
+
     //METODO MERGESORT
-    public static double[] METDMergesort(double[] Array, int Start_Point, int final_Point) 
+     private void METDMergesort(int Columna){
+         
+         int ContFilas = Table.getRowCount();
+         Object[][] contenido = new Object[ContFilas][4];
+         
+          for (int i = 0; i < ContFilas; i++) {
+            for (int j = 0; j < 4; j++) {
+            contenido[i][j] = Table.getValueAt(i, j);
+            }
+        }   
+        
+        if (Columna == 1 || Columna == 3) { //Para evitar que el programa interprete terminos lexicograficos. Ejemplo: "1000", lo toma como 1.
+            Arrays.sort(contenido, new Comparator<Object[]>() {
+            
+                @Override
+                public int compare(Object[] Fila1, Object[] Fila2) {
+                    int km1 = Integer.parseInt(Fila1[Columna].toString());
+                    int km2 = Integer.parseInt(Fila2[Columna].toString());
+                    return Integer.compare(km1, km2);
+            }
+        });
+    } else {
+        // Ordenar las otras columnas sin personalización
+        METDMergesort(contenido, Columna, 0, ContFilas - 1);
+    }
+
+
+        for (int i = 0; i < ContFilas; i++) {
+            for (int j = 0; j < 4; j++) {
+                Table.setValueAt(contenido[i][j], i, j);
+            }
+        }
+    }
+    
+    
+    private void METDMergesort(Object[][] contenido, int Columna, int Start_Point, int final_Point) 
     {
 
-        if(Start_Point<=1){
-
-            return Array;
-        }
 
         if (Start_Point < final_Point) 
         {
             int Mid = (Start_Point + final_Point) / 2;
-            double[] left = Arrays.copyOfRange(Array, Start_Point, Mid + 1);
-            double[] right = Arrays.copyOfRange(Array, Mid + 1, final_Point + 1);
-            left = METDMergesort(left, 0, left.length-1);
-            right = METDMergesort(right, 0, right.length);
-
-            return Fucion_merge(left, right);
+            METDMergesort(contenido, Columna, Start_Point, Mid);
+            METDMergesort(contenido, Columna, Mid + 1, final_Point);
+            Fucion_merge(contenido, Columna, Start_Point, Mid, final_Point);
 
         }
 
-        return Array;
     }
 
-    public static double[] Fucion_merge(double []left, double[]right){
+    private void Fucion_merge(Object[][] contenido, int Columna, int Start_Point, int Mid, int final_Point){
 
-        int l1 = left.length;
-        int l2 = right.length;
+        int l1 = Mid - Start_Point + 1;
+        int l2 = final_Point - Mid;
 
-        double[] ArrayFucionado = new double[l1+l2];
-        int i = 0, j = 0, k=0;
+        Object[][] StartP = new Object[l1][4];
+        Object[][] finalP = new Object[l2][4];
 
-        while (i < l1 && j < l2) 
-        {
-            if (left[i] <= right[j]) {
-
-                ArrayFucionado[k++] = left[i++];
-
-            } else {
-
-                ArrayFucionado[k++] = right[j++];
-
+        for (int i = 0; i < l1; i++) {
+            for (int j = 0; j < 4; j++) {
+                StartP[i][j] = contenido[Start_Point + i][j];
             }
         }
 
-        while (i < l1) 
-        {
-
-            ArrayFucionado[k++] = left[i++];
-  
+        for (int i = 0; i < l2; i++) {
+            for (int j = 0; j < 4; j++) {
+                finalP[i][j] = contenido[Mid + 1 + i][j];
+            }
         }
 
-        while (j < l2) 
-        {
-
-            ArrayFucionado[k++] = right[j++];
-
+        int i = 0, j = 0, k = Start_Point;
+        while (i < l1 && j < l2) {
+            Comparable<Object> v1 = (Comparable<Object>) StartP[i][Columna];
+            Comparable<Object> v2 = (Comparable<Object>) finalP[j][Columna];
+            if (v1.compareTo(v2) <= 0) {
+                for (int aux = 0; aux < 4; aux++) {
+                    contenido[k][aux] = StartP[i][aux];
+                }
+                i++;
+            } else {
+                for (int aux = 0; aux < 4; aux++) {
+                    contenido[k][aux] = finalP[j][aux];
+                }
+                j++;
+            }
+            k++;
         }
 
-        return ArrayFucionado;
+        while (i < l1) {
+            for (int aux = 0; aux < 4; aux++) {
+                contenido[k][aux] = StartP[i][aux];
+            }
+            i++;
+            k++;
+        }
+
+        while (j < l2) {
+            for (int aux = 0; aux < 4; aux++) {
+                contenido[k][aux] = finalP[j][aux];
+            }
+            j++;
+            k++;
+        }
     }
     
 
@@ -182,7 +214,6 @@ public class InterfaceConsecionarioV extends javax.swing.JFrame {
         Ordenar_Por_Modelo = new javax.swing.JToggleButton();
         Ordenar_Por_Kilometraje = new javax.swing.JToggleButton();
         Boton_METDMergesort = new javax.swing.JButton();
-        Boton_METDBurbuja = new javax.swing.JButton();
         Agregar_ATabla = new javax.swing.JButton();
         EliminarDataTabla = new javax.swing.JButton();
         VaciarTextF = new javax.swing.JButton();
@@ -254,23 +285,11 @@ public class InterfaceConsecionarioV extends javax.swing.JFrame {
         Boton_METDMergesort.setBackground(new java.awt.Color(153, 153, 153));
         Boton_METDMergesort.setFont(new java.awt.Font("Stencil", 0, 12)); // NOI18N
         Boton_METDMergesort.setForeground(new java.awt.Color(51, 51, 51));
-        Boton_METDMergesort.setText("Metodo Mergesort");
+        Boton_METDMergesort.setText("Ordenar ");
         Boton_METDMergesort.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 3, true));
         Boton_METDMergesort.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Boton_METDMergesortActionPerformed(evt);
-            }
-        });
-
-        Boton_METDBurbuja.setBackground(new java.awt.Color(153, 153, 153));
-        Boton_METDBurbuja.setFont(new java.awt.Font("Stencil", 0, 12)); // NOI18N
-        Boton_METDBurbuja.setForeground(new java.awt.Color(51, 51, 51));
-        Boton_METDBurbuja.setText("Metodo Burbuja");
-        Boton_METDBurbuja.setToolTipText("");
-        Boton_METDBurbuja.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 3, true));
-        Boton_METDBurbuja.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Boton_METDBurbujaActionPerformed(evt);
             }
         });
 
@@ -301,6 +320,11 @@ public class InterfaceConsecionarioV extends javax.swing.JFrame {
         VaciarTextF.setForeground(new java.awt.Color(51, 51, 51));
         VaciarTextF.setText("Vaciar Tabla");
         VaciarTextF.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 3, true));
+        VaciarTextF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VaciarTextFActionPerformed(evt);
+            }
+        });
 
         MarcasAutos.setBackground(new java.awt.Color(153, 153, 153));
         MarcasAutos.setFont(new java.awt.Font("Stencil", 0, 12)); // NOI18N
@@ -398,16 +422,20 @@ public class InterfaceConsecionarioV extends javax.swing.JFrame {
                         .addGap(472, 472, 472))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel3))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Kilometraje, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ColorAuto, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(AñoModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(MarcasAutos, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Kilometraje, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ColorAuto, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(AñoModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(40, 40, 40)
+                                .addComponent(MarcasAutos, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(12, 12, 12)
@@ -424,21 +452,17 @@ public class InterfaceConsecionarioV extends javax.swing.JFrame {
                                             .addComponent(ActualizarData, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(VaciarTextF, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(14, 14, 14))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(Ordenar_Por_Kilometraje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(Ordenar_Por_Modelo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(28, 28, 28))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(Boton_METDBurbuja, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(Boton_METDMergesort, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(43, 43, 43)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(Ordenar_Por_Kilometraje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Ordenar_Por_Modelo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Boton_METDMergesort, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(43, 43, 43)))
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10))))
         );
@@ -473,9 +497,7 @@ public class InterfaceConsecionarioV extends javax.swing.JFrame {
                                     .addComponent(Kilometraje, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel6)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(Boton_METDBurbuja, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Boton_METDMergesort, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Boton_METDMergesort, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(12, 12, 12)
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -517,20 +539,28 @@ public class InterfaceConsecionarioV extends javax.swing.JFrame {
         // SELECCION DE MARCA DE AUTOMOVIL
     }//GEN-LAST:event_MarcasAutosActionPerformed
 
-    private void Boton_METDBurbujaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_METDBurbujaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Boton_METDBurbujaActionPerformed
-
     private void Boton_METDMergesortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_METDMergesortActionPerformed
-        // TODO add your handling code here:
+        // INICIAR ORDEN DE ORDENAR MERGESORT
+
+      METDMergesort(CriterioOrdenamiento);
+        
     }//GEN-LAST:event_Boton_METDMergesortActionPerformed
 
     private void Ordenar_Por_ModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ordenar_Por_ModeloActionPerformed
-        // TODO add your handling code here:
+        // ORDENAR POR MODELO
+        
+    if (Ordenar_Por_Modelo.isSelected()) {
+        CriterioOrdenamiento = 1;
+    }
+        
     }//GEN-LAST:event_Ordenar_Por_ModeloActionPerformed
 
     private void Ordenar_Por_KilometrajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ordenar_Por_KilometrajeActionPerformed
-        // TODO add your handling code here:
+        //ORDENAR POR KILOMETRAJE
+        
+    if (Ordenar_Por_Kilometraje.isSelected()) {
+        CriterioOrdenamiento = 3;
+    }
     }//GEN-LAST:event_Ordenar_Por_KilometrajeActionPerformed
 
     private void AñoModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AñoModeloActionPerformed
@@ -538,7 +568,8 @@ public class InterfaceConsecionarioV extends javax.swing.JFrame {
     }//GEN-LAST:event_AñoModeloActionPerformed
 
     private void ActualizarDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarDataActionPerformed
-        // TODO add your handling code here:
+        // EDITAR / ACTUALIZAR UN DATO   
+        ActualizarData();
     }//GEN-LAST:event_ActualizarDataActionPerformed
 
     private void KilometrajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KilometrajeActionPerformed
@@ -555,6 +586,12 @@ public class InterfaceConsecionarioV extends javax.swing.JFrame {
         
         EliminarData();
     }//GEN-LAST:event_EliminarDataTablaActionPerformed
+
+    private void VaciarTextFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VaciarTextFActionPerformed
+        // VACIAR LA TABLA
+        
+        LimpiarAll();
+    }//GEN-LAST:event_VaciarTextFActionPerformed
 
     /**
      * @param args the command line arguments
@@ -585,6 +622,7 @@ public class InterfaceConsecionarioV extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new InterfaceConsecionarioV().setVisible(true);
             }
@@ -595,7 +633,6 @@ public class InterfaceConsecionarioV extends javax.swing.JFrame {
     private javax.swing.JButton ActualizarData;
     private javax.swing.JButton Agregar_ATabla;
     private javax.swing.JTextField AñoModelo;
-    private javax.swing.JButton Boton_METDBurbuja;
     private javax.swing.JButton Boton_METDMergesort;
     private javax.swing.JTextField ColorAuto;
     private javax.swing.JButton EliminarDataTabla;
