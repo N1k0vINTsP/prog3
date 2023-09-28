@@ -1,0 +1,61 @@
+100101;Matemáticas básicas;1;4;V1115
+24024;Metodología investigación;1;2;M0810
+1137;Expresión gráfica;1;2;L1214
+1836;Introducción a la ingeniería;1;2;M0709
+10101;Programación I;1;3;S1013
+100301;Ética;1;2;L1113
+100302;Cátedra neogranadina;1;1;V0910
+1001071;Álgebra lineal;2;3;V1316
+100102;Cálculo diferencial;2;4;M0812
+1002013;Física mecánica;2;4;M0913
+1135;Química y laboratorio;2;4;S0711
+10103;Programación II;2;3;X1114
+1003061;Extensión cultural deportiva;2;0;V0808
+100103;Cálculo integral;3;4;V0812
+100203;Física electricidad y magnetismo;3;4;V0711
+18105;Materiales;3;3;M1114
+1831;Procesos de mecanizado;3;1;X0708
+18106;Circuitos electrónicos y lab.;3;4;L0913
+1859;Programación III;3;3;M1013
+1001051;Ecuaciones diferenciales;4;3;X0912
+100104;Cálculo vectorial;4;3;J0710
+1002024;Física, calor y ondas y lab.;4;4;S1216
+130412;Tecnología mecánica;4;1;L1213
+18205;Electrónica y laboratorio;4;3;V1215
+18202;Digitales y laboratorio;4;3;J1013
+1806;Matemáticas avanzadas;5;3;V0710
+18206;Campos electromagnéticos;5;3;L1013
+29202;Mecánica de sólidos;5;4;L0913
+18203;Micros y laboratorio;5;3;V0811
+1882;Sensores y laboratorio;5;3;M0710
+1003047;Humanidades I;5;2;S1315
+18401;Métodos matemáticos;6;2;S1315
+18941;Probabilidad y estadística;6;3;M0912
+18204;Dinámica aplicada;6;4;L1014
+18316;Mecánica de fluidos;6;3;S1114
+18301;Modelos de sistemas mecatrónicos;6;3;M0811
+18302;Actuadores y laboratorio;6;3;M0811
+18321;Comunicaciones;7;3;S1316
+18324;Procesamiento digital de señales;7;3;J1215
+18325;Elementos mecánicos;7;3;V1215
+18322;Control lineal y laboratorio;7;3;M0912
+18323;Electrónica de potencia y lab.;7;3;J1114
+18402;Economía;7;2;M1012
+18327;Termofluidos;8;4;S0812
+18326;Robótica;8;3;S0811
+18328;Tópicos avanzados de control;8;3;M1316
+18329;Elementos finitos;8;3;L1013
+1261;Principios constitucionales;8;2;L1214
+1898;Humanidades II;8;2;J1315
+18403;Análisis financiero;8;2;J1012
+18314;Inteligencia artificial;9;3;X1013
+13048;Diseño mecatrónico;9;4;M1115
+18315;Automatización industrial;9;3;V1316
+12303;Realidad virtual;9;3;M1215
+130802;Seminario investigación;9;2;M0709
+1522;Ingeniería económica;9;2;M0709
+18330;Electiva de énfasis mecánica;10;3;V0912
+18331;Electiva de énfasis electrónica;10;3;M1114
+18332;Electiva interdisciplinaria;10;2;L0911
+10102;Opción de grado;10;6;V1117
+1330;Gestión tecnológica;10;2;S0709
