@@ -7,17 +7,22 @@ public class Lab0301 {
     static Queue<Registro> regis = new LinkedList<>(); //cola para registros de asignaturas por estudiante
     static Queue<String> codigos = new LinkedList<>();// cola de codigos de los estudiantes
     
-    public static void main(String[] args) {
-        
-        carga_BaseDatos_Asignaturas(args[0]);
-        registro_estudiante();
-        registro_asignaturas();
-        reporte_registro_final();
-        
-    }
+       
+        public static void main(String[] args) {
+            boolean siga = true;
+
+            carga_BaseDatos_Asignaturas(args[0]);
+            do{
+                siga = registro_estudiante();
+                if(!siga)break;
+                registro_asignaturas();
+                 reporte_registro_final();
+            }while(true);
+            }
+
     
-    public static void carga_BaseDatos_Asignaturas(String ArchTexto){
-        asignaturas = Entrada.loadFile(ArchTexto);
+    public static void carga_BaseDatos_Asignaturas(String Archivo){
+        asignaturas = Entrada.loadFile(Archivo);
         
     }
     public static boolean registro_estudiante(){
@@ -46,12 +51,22 @@ public class Lab0301 {
     }
     
     public static void registro_asignaturas(){
+        
+        boolean VerAsigDelsemestre = true;
+        
          do {
-            int sem = Entrada.readInt("\nVer asignaturas del semestre: ", 1, 10);
-            mostrar_asignaturas(sem);
-        } while (false);
+            int semestre = Entrada.readInt("\nVer asignaturas del semestre: ", 1, 10);
+            mostrar_asignaturas(semestre);
+            
+            String Inscribirse = Entrada.readText("\n¿Desea inscribir alguna asignatura? (si/no) ");
+            if (Inscribirse.equalsIgnoreCase("no")) {
+                VerAsigDelsemestre = false; // Si el estudiante no desea ver más asignaturas, sal del bucle
+            }
+        } while (VerAsigDelsemestre);
+         
+         
     }
-    
+
     public static void mostrar_asignaturas(int semestre){
             for (Asignatura s : asignaturas) {
             if (s.getSemestre() == semestre)

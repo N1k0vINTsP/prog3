@@ -2,14 +2,14 @@
 public class Asignatura {
     
     int codigo;
-    String Asignatura;
+    String nom_Asig;
     int semestre;
     int Num_creditos;
     String horario;
 
-    public Asignatura(int codigo, String Asignatura, int semestre, int Num_creditos, String horario) {
+    Asignatura(int codigo, String nom_Asig, int semestre, int Num_creditos, String horario) {
         this.codigo = codigo;
-        this.Asignatura = Asignatura;
+        this.nom_Asig = nom_Asig;
         this.semestre = semestre;
         this.Num_creditos = Num_creditos;
         this.horario = horario;
@@ -23,12 +23,12 @@ public class Asignatura {
         this.codigo = codigo;
     }
 
-    public String getAsignatura() {
-        return Asignatura;
+    public String getnom_Asig() {
+        return nom_Asig;
     }
 
-    public void setAsignatura(String Asignatura) {
-        this.Asignatura = Asignatura;
+    public void setnom_Asig(String nom_Asig) {
+        this.nom_Asig = nom_Asig;
     }
 
     public int getSemestre() {
@@ -55,6 +55,8 @@ public class Asignatura {
         this.horario = horario;
     }
     
-    
-    
+    @Override
+    public String toString() {
+        return String.format("%-7d  %-35s%5d%7s", codigo, nom_Asig, Num_creditos, horario);
+    }    
 }

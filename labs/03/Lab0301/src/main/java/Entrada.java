@@ -3,6 +3,7 @@ import java.util.Scanner;
 import java.io.File;
 import java.util.Arrays;
 
+
 public class Entrada {
     private static Scanner input = new Scanner(System.in);
     
