@@ -12,7 +12,9 @@ public class Temporizador extends TimerTask {
 
     @Override
     public void run() {
-        System.out.println("\n" + msj);
+        System.out.println();
+        System.out.println("\nRECORDATORIO -> TEMP. ANTERIOR: [" + msj + "]");
+         System.out.println();
     }
 
     public void programarTempo(int segundos) {
