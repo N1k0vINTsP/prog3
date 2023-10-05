@@ -1,20 +1,18 @@
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
 public class Temporizador extends TimerTask {
-    private String msj;
-    private Timer tempo;
+    public String msj;
+    public Timer tempo;
 
     public Temporizador(String mensaje) {
-        this.msj = msj;
+        this.msj = mensaje;
         this.tempo = new Timer();
     }
-       @Override
+
+    @Override
     public void run() {
-        System.out.println(msj);
+        System.out.println("\n" + msj);
     }
 
     public void programarTempo(int segundos) {
