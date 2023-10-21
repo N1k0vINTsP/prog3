@@ -1,52 +1,17 @@
-
-import java.io.File;
-import java.io.IOException;
 import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartUtilities;
+import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+import javax.swing.*;
+import java.io.File;
+import java.io.IOException;
+import org.jfree.chart.ChartUtilities;
 
-/**
- *
- * @author Estudiante
- */
-public class XYChartExample extends javax.swing.JFrame {
-
-
-    public XYChartExample() {
-        initComponents();
-    }
-
-    
-   
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
-
-        pack();
-    }// </editor-fold>//GEN-END:initComponents
-
-    public static void main(String args[]) {
+public class XYChartExample {
+    public static void main(String[] args) {
         // Crear un gráfico xy simple
         XYSeries series = new XYSeries("XYGraph");
         series.add(1, 1);
@@ -54,37 +19,39 @@ public class XYChartExample extends javax.swing.JFrame {
         series.add(2, 1);
         series.add(3, 9);
         series.add(4, 10);
-    // Agregar las series de datos
+
+        // Agregar las series de datos
         XYSeriesCollection dataset = new XYSeriesCollection();
         dataset.addSeries(series);
+
         // Generar el gráfico
         JFreeChart chart = ChartFactory.createXYLineChart(
-        "XY Chart", // Título
-        "Eje x", // etiqueta para el eje x
-        "Eje y", // etiqueta para el eje y
-        dataset, // Dataset
-        PlotOrientation.VERTICAL, // Orientación
-        true, // Mostrar leyenda
-        true, // Usar tooltips
-        false // Configurar para generar URLs
-);
-// Generar un archivo con el gráfico
-try {
-ChartUtilities.saveChartAsJPEG(new File("chart.jpg"),
-chart, 500, 300);
-} catch (IOException e) {
-System.err.println("Error al crear el archivo.");
+                "XY Chart", // Título
+                "Eje x", // etiqueta para el eje x
+                "Eje y", // etiqueta para el eje y
+                dataset, // Dataset
+                PlotOrientation.VERTICAL, // Orientación
+                true, // Mostrar leyenda
+                true, // Usar tooltips
+                false // Configurar para generar URLs
+        );
 
+        // Crear un panel de visualización de la gráfica
+        ChartPanel chartPanel = new ChartPanel(chart);
 
-}
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new XYChartExample().setVisible(true);
-            }
-        });
+        // Crear un nuevo JFrame para mostrar la gráfica
+        JFrame frame = new JFrame("XY Chart");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().add(chartPanel);
+
+        frame.pack();
+        frame.setVisible(true);
+
+        // Generar un archivo con la gráfica
+        try {
+            ChartUtilities.saveChartAsJPEG(new File("chart.jpg"), chart, 500, 300);
+        } catch (IOException e) {
+            System.err.println("Error al crear el archivo.");
+        }
     }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    // End of variables declaration//GEN-END:variables
 }
