@@ -1,0 +1,9 @@
+https://www.datos.gov.co/Seguridad-y-Defensa/Reporte-Hurto-por-Modalidades-Polic-a-Nacional/6sqw-8cg5
+
+La base de datos a utilizar consiste en los reportes de hurto por modalidades sengun la Policia Nacional. Dichos reportes inician desde el 01 de enero del 2010
+y van hasta e 31 de julio del año 2023. Por lo cual el uso de datos de la tabla proporicionada seran a partir de dos años de antiguedad, abarcando la segunda mitad
+del año 2021 hasta el final de la primera mitad del año 2023. 
+
+En cuanto al concepto el objetivo de estre proyecto es poder crear una interfaz que permita al usuario filtrar los distintos datos de la tabla sobre hurtos por modalidad.
+El fin es conocer y generar graficas que se puedan interpretar para obtener analisis de sobre la inseguridad presenten en la Nacion y como en son en mayoria las victimas
+y las modalidades de delincuencia en hurtos que se presentan en Colombia.
