@@ -100,51 +100,45 @@ public class InterfazUsuario extends javax.swing.JFrame {
     // Aplicar el filtro a la tabla
     trs.setRowFilter(filtro);
 }
-    
-    private void Crear_GuardarGraficaTORTA(int Col){
-     
-        DefaultPieDataset dataset = new DefaultPieDataset();
-        
-        String columnaX = jComboBoxEJEX.getSelectedItem().toString();
-        String columnaY = jComboBoxEJEY.getSelectedItem().toString();
+   
+    private void crearYGuardarGrafica(boolean esGraficaDeTorta, String tituloGrafica) {
+    int columnaX = jComboBoxEJEX.getSelectedIndex();
+    int columnaY = jComboBoxEJEY.getSelectedIndex();
 
-        for (int i = 0; i < TablaDeFiltros.getRowCount(); i++) {
-            String categoriaColumna = TablaDeFiltros.getValueAt(i, TablaDeFiltros.getColumnModel().getColumnIndex(columnaX)).toString();
-            double valor = Double.parseDouble(TablaDeFiltros.getValueAt(i, TablaDeFiltros.getColumnModel().getColumnIndex(columnaY)).toString());
-            dataset.setValue(categoriaColumna, valor);
-        }
-
-        JFreeChart chart = ChartFactory.createPieChart("Gráfica de Torta", dataset, true, true, false);
-
-        try {
-            ChartUtilities.saveChartAsPNG(new File("grafica_torta.png"), chart, 800, 600);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        
+    if (columnaX == columnaY) {
+        return; // Las columnas seleccionadas deben ser diferentes.
     }
-    
-    private void Crear_GuardarGraficaBARRA(){
-        
-        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-        
-        String columnaX = jComboBoxEJEX.getSelectedItem().toString();
-        String columnaY = jComboBoxEJEY.getSelectedItem().toString();
 
-        for (int i = 0; i < TablaDeFiltros.getRowCount(); i++) {
-            String categoria = TablaDeFiltros.getValueAt(i, TablaDeFiltros.getColumnModel().getColumnIndex(columnaX)).toString();
-            double valor = Double.parseDouble(TablaDeFiltros.getValueAt(i, TablaDeFiltros.getColumnModel().getColumnIndex(columnaY)).toString());
-            dataset.addValue(valor, columnaY, categoria);
-        }
+    DefaultCategoryDataset barDataset = new DefaultCategoryDataset();
+    DefaultPieDataset pieDataset = new DefaultPieDataset();
 
-        JFreeChart chart = ChartFactory.createBarChart("Gráfica de Barras", columnaX, columnaY, dataset);
-
-        try {
-            ChartUtilities.saveChartAsPNG(new File("grafica_barra.png"), chart, 800, 600);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+    for (int i = 0; i < TablaDeFiltros.getRowCount(); i++) {
+        String categoria = TablaDeFiltros.getValueAt(i, columnaX).toString();
+        double valor = Double.parseDouble(TablaDeFiltros.getValueAt(i, columnaY).toString());
+        Comparable columnaYComparable = TablaDeFiltros.getColumnName(columnaY);
+        barDataset.addValue(valor, categoria, columnaYComparable);
+        pieDataset.setValue(categoria, valor);
     }
+
+    JFreeChart chart;
+    String chartTitle = tituloGrafica; // Utiliza el título proporcionado por el usuario.
+
+    if (esGraficaDeTorta) {
+        chart = ChartFactory.createPieChart(chartTitle, pieDataset, true, true, false);
+    } else {
+        chart = ChartFactory.createBarChart(chartTitle, TablaDeFiltros.getColumnName(columnaX), TablaDeFiltros.getColumnName(columnaY), barDataset);
+    }
+
+    String nombreArchivo = esGraficaDeTorta ? "grafica_torta.png" : "grafica_barra.png";
+
+    try {
+        ChartUtilities.saveChartAsPNG(new File(nombreArchivo), chart, 800, 600);
+    } catch (IOException ex) {
+        ex.printStackTrace();
+    }
+}
+
+
         
     
     @SuppressWarnings("unchecked")
@@ -180,6 +174,8 @@ public class InterfazUsuario extends javax.swing.JFrame {
         jComboBoxEJEY = new javax.swing.JComboBox<>();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
+        TituloGrafica = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -328,6 +324,9 @@ public class InterfazUsuario extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Stencil", 0, 12)); // NOI18N
         jLabel15.setText("Columna EJE Y");
 
+        jLabel16.setFont(new java.awt.Font("Stencil", 0, 12)); // NOI18N
+        jLabel16.setText("Titurlo de la grafica");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -335,13 +334,15 @@ public class InterfazUsuario extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel1)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addGap(32, 32, 32)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel6)
-                                .addComponent(jLabel4))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGap(32, 32, 32)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel4))))
+                        .addGap(18, 18, 18))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -356,15 +357,10 @@ public class InterfazUsuario extends javax.swing.JFrame {
                             .addComponent(jLabel12)
                             .addComponent(jLabel13)
                             .addComponent(jLabel8)
-                            .addComponent(jLabel11)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel10))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(OpcionTorta)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(OpcionBarra))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel5)
@@ -380,8 +376,16 @@ public class InterfazUsuario extends javax.swing.JFrame {
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(jLabel15)
                                                 .addComponent(jComboBoxEJEY, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addGap(18, 18, 18)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel16)
+                                    .addComponent(TituloGrafica, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(OpcionTorta)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(OpcionBarra)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -392,7 +396,7 @@ public class InterfazUsuario extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane1)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -418,38 +422,50 @@ public class InterfazUsuario extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
                             .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(FiltroFechaHecho, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel11)
-                                .addGap(5, 5, 5)
-                                .addComponent(FiltroGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel12)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(FiltroGrupoEtario, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel13)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(FiltroTipoHurto, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(BotonGraficar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel14)
-                                    .addComponent(jLabel15))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jComboBoxEJEX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBoxEJEY, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addGap(170, 170, 170)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jComboBoxEJEX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jComboBoxEJEY, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(145, 145, 145)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jLabel14)
+                                            .addComponent(jLabel15))
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(OpcionBarra)
                                     .addComponent(OpcionTorta))
-                                .addGap(14, 14, 14)))
-                        .addGap(0, 2, Short.MAX_VALUE))))
+                                .addGap(23, 23, 23))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(FiltroFechaHecho, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel11)
+                                        .addGap(5, 5, 5)
+                                        .addComponent(FiltroGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel12)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(FiltroGrupoEtario, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel13)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(FiltroTipoHurto, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(BotonGraficar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel16)
+                                        .addGap(10, 10, 10)
+                                        .addComponent(TituloGrafica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(128, 128, 128))))))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -460,11 +476,11 @@ public class InterfazUsuario extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 11, Short.MAX_VALUE)))
+                    .addGap(0, 23, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 490, Short.MAX_VALUE)
+            .addGap(0, 527, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -545,28 +561,10 @@ public class InterfazUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxEJEYActionPerformed
 
     private void BotonGraficarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonGraficarActionPerformed
-        // TODO add your handling code here:
-        
-        if(OpcionTorta.isSelected()||OpcionBarra.isSelected()){
-            
-        int columnaX = jComboBoxEJEX.getSelectedIndex(); // Número de columna seleccionada en el ComboBox del eje X
-        int columnaY = jComboBoxEJEY.getSelectedIndex();
-        
-        if(columnaX == columnaY){
-            
-            return;
-        }
-        
-        if(OpcionTorta.isSelected()){
-            
-            Crear_GuardarGraficaTORTA(columnaX, columnaY);
-        }
-        if(OpcionBarra.isSelected()){
-            
-            Crear_GuardarGraficaBARRA(columnaX, columnaY);
-        }
-    }
-        
+
+         boolean esGraficaDeTorta = OpcionTorta.isSelected();
+         String tituloGrafica = TituloGrafica.getText(); // Obtiene el título del JTextField.
+        crearYGuardarGrafica(esGraficaDeTorta, tituloGrafica);
     }//GEN-LAST:event_BotonGraficarActionPerformed
 
     /**
@@ -616,6 +614,7 @@ public class InterfazUsuario extends javax.swing.JFrame {
     private javax.swing.JCheckBox OpcionBarra;
     private javax.swing.JCheckBox OpcionTorta;
     private javax.swing.JTable TablaDeFiltros;
+    private javax.swing.JTextField TituloGrafica;
     private javax.swing.JComboBox<String> jComboBoxEJEX;
     private javax.swing.JComboBox<String> jComboBoxEJEY;
     private javax.swing.JLabel jLabel1;
@@ -625,6 +624,7 @@ public class InterfazUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
