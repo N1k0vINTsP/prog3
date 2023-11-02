@@ -23,19 +23,22 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="1225" max="32767" attributes="0"/>
+          <EmptySpace min="0" pref="1390" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="10" max="32767" attributes="0"/>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="420" max="32767" attributes="0"/>
+          <EmptySpace min="0" pref="505" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="jPanel1" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -60,33 +63,38 @@
                               </Group>
                           </Group>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="BotonGraficar" min="-2" pref="213" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="Filtro1" max="32767" attributes="0"/>
-                                      <Component id="Filtro3" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="Filtro2" alignment="0" min="-2" pref="213" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="FiltroMunicipio" max="32767" attributes="0"/>
+                                  <Component id="FiltroFechaHecho" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="FiltroGenero" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="FiltroGrupoEtario" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="FiltroTipoHurto" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="FiltroArmasMedios" alignment="0" max="32767" attributes="0"/>
                               </Group>
+                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                              <Component id="BotonFiltrar" min="-2" pref="213" max="-2" attributes="0"/>
+                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                               <Component id="BotonCargar" alignment="0" min="-2" pref="213" max="-2" attributes="0"/>
-                              <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="OpcionBarra" min="-2" max="-2" attributes="0"/>
-                              <Component id="OpcionTorta" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                              <Component id="OpcionBarra" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="OpcionTorta" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="BotonGraficar" min="-2" pref="213" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="710" max="-2" attributes="0"/>
-                  <EmptySpace pref="15" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="860" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -95,80 +103,154 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane1" min="-2" pref="380" max="-2" attributes="0"/>
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jScrollPane1" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                           <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="Filtro1" min="-2" pref="32" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                                  <Component id="Filtro2" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="FiltroMunicipio" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                                  <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="Filtro3" min="-2" pref="32" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                  <Component id="FiltroArmasMedios" min="-2" pref="32" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="BotonCargar" min="-2" pref="52" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="BotonFiltrar" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="BotonCargar" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="FiltroFechaHecho" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                              <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="BotonGraficar" min="-2" pref="71" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                                  <Component id="FiltroGenero" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="FiltroGrupoEtario" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="FiltroTipoHurto" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="19" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="BotonGraficar" min="-2" pref="88" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="OpcionTorta" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="OpcionBarra" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="19" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JComboBox" name="Filtro1">
+        <Component class="javax.swing.JComboBox" name="FiltroMunicipio">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="8">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
-                <StringItem index="4" value="item 5"/>
-                <StringItem index="5" value="item 6"/>
-                <StringItem index="6" value="item 7"/>
-                <StringItem index="7" value="item 8"/>
+              <StringArray count="68">
+                <StringItem index="0" value="Ninguno..."/>
+                <StringItem index="1" value="Agua de Dios"/>
+                <StringItem index="2" value="Alb&#xe1;n"/>
+                <StringItem index="3" value="Anapoima"/>
+                <StringItem index="4" value="Anolaima"/>
+                <StringItem index="5" value="Apulo"/>
+                <StringItem index="6" value="Arbel&#xe1;ez"/>
+                <StringItem index="7" value="Bogot&#xe1; D.C. (CT)"/>
+                <StringItem index="8" value="Cachipay"/>
+                <StringItem index="9" value="Cajic&#xe1;"/>
+                <StringItem index="10" value="Caparrap&#xed;"/>
+                <StringItem index="11" value="Carmen de Carupa"/>
+                <StringItem index="12" value="Chaguan&#xed;"/>
+                <StringItem index="13" value="Ch&#xed;a"/>
+                <StringItem index="14" value="Chipaque"/>
+                <StringItem index="15" value="Choach&#xed;"/>
+                <StringItem index="16" value="Chocont&#xe1;"/>
+                <StringItem index="17" value="Cogua"/>
+                <StringItem index="18" value="Cota"/>
+                <StringItem index="19" value="El Colegio"/>
+                <StringItem index="20" value="El Rosal"/>
+                <StringItem index="21" value="Facatativ&#xe1;"/>
+                <StringItem index="22" value="Funza"/>
+                <StringItem index="23" value="F&#xfa;quene"/>
+                <StringItem index="24" value="Fusagasug&#xe1;"/>
+                <StringItem index="25" value="Gachancip&#xe1;"/>
+                <StringItem index="26" value="Gachet&#xe1;"/>
+                <StringItem index="27" value="Girardot"/>
+                <StringItem index="28" value="Guaduas"/>
+                <StringItem index="29" value="Guasca"/>
+                <StringItem index="30" value="La Calera"/>
+                <StringItem index="31" value="La Mesa"/>
+                <StringItem index="32" value="La Palma"/>
+                <StringItem index="33" value="La Vega"/>
+                <StringItem index="34" value="Lenguazaque"/>
+                <StringItem index="35" value="Macheta"/>
+                <StringItem index="36" value="Madrid"/>
+                <StringItem index="37" value="Mosquera"/>
+                <StringItem index="38" value="Nemoc&#xf3;n"/>
+                <StringItem index="39" value="Nilo"/>
+                <StringItem index="40" value="Nimaima"/>
+                <StringItem index="41" value="Pacho"/>
+                <StringItem index="42" value="Paratebueno"/>
+                <StringItem index="43" value="Ricaurte"/>
+                <StringItem index="44" value="San Antonio del Tequendama"/>
+                <StringItem index="45" value="San Francisco"/>
+                <StringItem index="46" value="Sasaima"/>
+                <StringItem index="47" value="Sibat&#xe9;"/>
+                <StringItem index="48" value="Silvania"/>
+                <StringItem index="49" value="Simijaca"/>
+                <StringItem index="50" value="Soacha"/>
+                <StringItem index="51" value="Sop&#xf3;"/>
+                <StringItem index="52" value="Subachoque"/>
+                <StringItem index="53" value="Suesca"/>
+                <StringItem index="54" value="Supat&#xe1;"/>
+                <StringItem index="55" value="Susa"/>
+                <StringItem index="56" value="Sutatausa"/>
+                <StringItem index="57" value="Tabio"/>
+                <StringItem index="58" value="Tausa"/>
+                <StringItem index="59" value="Tena"/>
+                <StringItem index="60" value="Tenjo"/>
+                <StringItem index="61" value="Tocaima"/>
+                <StringItem index="62" value="Tocancip&#xe1;"/>
+                <StringItem index="63" value="Une"/>
+                <StringItem index="64" value="Villa de San Diego de Ubate"/>
+                <StringItem index="65" value="Villeta"/>
+                <StringItem index="66" value="Zipac&#xf3;n"/>
+                <StringItem index="67" value="Zipaquir&#xe1;"/>
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FiltroMunicipioActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
-        </Component>
-        <Component class="javax.swing.JButton" name="BotonFiltrar">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Filtrar"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonFiltrarActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="BotonGraficar">
           <Properties>
@@ -243,49 +325,76 @@
             <Property name="text" type="java.lang.String" value="Filtros"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="Filtro3">
+        <Component class="javax.swing.JComboBox" name="FiltroFechaHecho">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+              <StringArray count="31">
+                <StringItem index="0" value="Ninguno..."/>
+                <StringItem index="1" value="1/06/2023"/>
+                <StringItem index="2" value="2/06/2023"/>
+                <StringItem index="3" value="3/06/2023"/>
+                <StringItem index="4" value="4/06/2023"/>
+                <StringItem index="5" value="5/06/2023"/>
+                <StringItem index="6" value="6/06/2023"/>
+                <StringItem index="7" value="7/06/2023"/>
+                <StringItem index="8" value="8/06/2023"/>
+                <StringItem index="9" value="9/06/2023"/>
+                <StringItem index="10" value="10/06/2023"/>
+                <StringItem index="11" value="11/06/2023"/>
+                <StringItem index="12" value="12/06/2023"/>
+                <StringItem index="13" value="13/06/2023"/>
+                <StringItem index="14" value="14/06/2023"/>
+                <StringItem index="15" value="15/06/2023"/>
+                <StringItem index="16" value="16/06/2023"/>
+                <StringItem index="17" value="17/06/2023"/>
+                <StringItem index="18" value="18/06/2023"/>
+                <StringItem index="19" value="19/06/2023"/>
+                <StringItem index="20" value="20/06/2023"/>
+                <StringItem index="21" value="21/06/2023"/>
+                <StringItem index="22" value="22/06/2023"/>
+                <StringItem index="23" value="23/06/2023"/>
+                <StringItem index="24" value="24/06/2023"/>
+                <StringItem index="25" value="25/06/2023"/>
+                <StringItem index="26" value="26/06/2023"/>
+                <StringItem index="27" value="27/06/2023"/>
+                <StringItem index="28" value="28/06/2023"/>
+                <StringItem index="29" value="29/06/2023"/>
+                <StringItem index="30" value="30/06/2023"/>
               </StringArray>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Filtro3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FiltroFechaHechoActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JComboBox" name="Filtro2">
+        <Component class="javax.swing.JComboBox" name="FiltroArmasMedios">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+              <StringArray count="12">
+                <StringItem index="0" value="Ninguno..."/>
+                <StringItem index="1" value="ARMA DE FUEGO"/>
+                <StringItem index="2" value="ARMA BLANCA / CORTOPUNZANTE"/>
+                <StringItem index="3" value="PUNZANTE"/>
+                <StringItem index="4" value="CONTUNDENTES"/>
+                <StringItem index="5" value="ESCOPOLAMINA"/>
+                <StringItem index="6" value="PALANCAS"/>
+                <StringItem index="7" value="NO REPORTADO"/>
+                <StringItem index="8" value="CORTANTES"/>
+                <StringItem index="9" value="LLAVE MAESTRA"/>
+                <StringItem index="10" value="SIN EMPLEO DE ARMAS"/>
+                <StringItem index="11" value=" "/>
               </StringArray>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Filtro2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FiltroArmasMediosActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel3">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Stencil" size="14" style="0"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Funcion Filtrar"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
@@ -341,6 +450,111 @@
               <Font name="Stencil" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Cargar datos a la tabla"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="FiltroGenero">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="6">
+                <StringItem index="0" value="Ninguno..."/>
+                <StringItem index="1" value="NO APLICA"/>
+                <StringItem index="2" value="NO REPORTADO"/>
+                <StringItem index="3" value="MASCULINO"/>
+                <StringItem index="4" value="FEMENINO"/>
+                <StringItem index="5" value=" "/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FiltroGeneroActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="FiltroGrupoEtario">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="6">
+                <StringItem index="0" value="Ninguno..."/>
+                <StringItem index="1" value="NO APLICA"/>
+                <StringItem index="2" value="NO REPORTADO"/>
+                <StringItem index="3" value="ADULTOS"/>
+                <StringItem index="4" value="ADOLESCENTES"/>
+                <StringItem index="5" value="MENORES"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FiltroGrupoEtarioActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="FiltroTipoHurto">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="3">
+                <StringItem index="0" value="Ninguno..."/>
+                <StringItem index="1" value="HURTO RESIDENCIAS"/>
+                <StringItem index="2" value="HURTO ENTIDADES COMERCIALES"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FiltroTipoHurtoActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel8">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Stencil" size="12" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Filtro MUNICIPIO"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel9">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Stencil" size="12" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Filtro Armas medios"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel10">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Stencil" size="12" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Filtro FECHA HECHO"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel11">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Stencil" size="12" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Filtro GENERO"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel12">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Stencil" size="12" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Filtro GRUPO ETARIO"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel13">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Stencil" size="12" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Filtro TIPO DE HURTO"/>
           </Properties>
         </Component>
       </SubComponents>

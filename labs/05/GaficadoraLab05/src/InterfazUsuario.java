@@ -9,35 +9,54 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
+
+
 
 
 public class InterfazUsuario extends javax.swing.JFrame {
 
+    TableRowSorter trs; 
+    DefaultTableModel model;
+    
+    
     public InterfazUsuario() {
         initComponents();
         
         
     }
+    
+//    private void FiltracionEnTabla(){
+//
+//        DefaultTableModel model = (DefaultTableModel) TablaDeFiltros.getModel();
+//        model.setRowCount(0); // Limpia la tabla
+//
+//        String SeleccionMunicipio = FiltroMunicipio.getSelectedItem().toString();
+//        String SeleccionArmasMedios = FiltroArmasMedios.getSelectedItem().toString();
+//        String SeleccionFechaHecho = FiltroFechaHecho.getSelectedItem().toString();
+//        String SeleccionGenero = FiltroGenero.getSelectedItem().toString();
+//        String SeleccionGrupoEtario = FiltroGrupoEtario.getSelectedItem().toString();
+//        String SeleccionTipoHurto = FiltroTipoHurto.getSelectedItem().toString();
+//
+//    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        Filtro1 = new javax.swing.JComboBox<>();
-        BotonFiltrar = new javax.swing.JButton();
+        FiltroMunicipio = new javax.swing.JComboBox<>();
         BotonGraficar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaDeFiltros = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        Filtro3 = new javax.swing.JComboBox<>();
-        Filtro2 = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
+        FiltroFechaHecho = new javax.swing.JComboBox<>();
+        FiltroArmasMedios = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         OpcionTorta = new javax.swing.JCheckBox();
         OpcionBarra = new javax.swing.JCheckBox();
@@ -45,15 +64,22 @@ public class InterfazUsuario extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         BotonCargar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        FiltroGenero = new javax.swing.JComboBox<>();
+        FiltroGrupoEtario = new javax.swing.JComboBox<>();
+        FiltroTipoHurto = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Filtro1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4", "item 5", "item 6", "item 7", "item 8" }));
-
-        BotonFiltrar.setText("Filtrar");
-        BotonFiltrar.addActionListener(new java.awt.event.ActionListener() {
+        FiltroMunicipio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ninguno...", "Agua de Dios", "Albán", "Anapoima", "Anolaima", "Apulo", "Arbeláez", "Bogotá D.C. (CT)", "Cachipay", "Cajicá", "Caparrapí", "Carmen de Carupa", "Chaguaní", "Chía", "Chipaque", "Choachí", "Chocontá", "Cogua", "Cota", "El Colegio", "El Rosal", "Facatativá", "Funza", "Fúquene", "Fusagasugá", "Gachancipá", "Gachetá", "Girardot", "Guaduas", "Guasca", "La Calera", "La Mesa", "La Palma", "La Vega", "Lenguazaque", "Macheta", "Madrid", "Mosquera", "Nemocón", "Nilo", "Nimaima", "Pacho", "Paratebueno", "Ricaurte", "San Antonio del Tequendama", "San Francisco", "Sasaima", "Sibaté", "Silvania", "Simijaca", "Soacha", "Sopó", "Subachoque", "Suesca", "Supatá", "Susa", "Sutatausa", "Tabio", "Tausa", "Tena", "Tenjo", "Tocaima", "Tocancipá", "Une", "Villa de San Diego de Ubate", "Villeta", "Zipacón", "Zipaquirá" }));
+        FiltroMunicipio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonFiltrarActionPerformed(evt);
+                FiltroMunicipioActionPerformed(evt);
             }
         });
 
@@ -84,22 +110,19 @@ public class InterfazUsuario extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Stencil", 0, 14)); // NOI18N
         jLabel2.setText("Filtros");
 
-        Filtro3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Filtro3.addActionListener(new java.awt.event.ActionListener() {
+        FiltroFechaHecho.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ninguno...", "1/06/2023", "2/06/2023", "3/06/2023", "4/06/2023", "5/06/2023", "6/06/2023", "7/06/2023", "8/06/2023", "9/06/2023", "10/06/2023", "11/06/2023", "12/06/2023", "13/06/2023", "14/06/2023", "15/06/2023", "16/06/2023", "17/06/2023", "18/06/2023", "19/06/2023", "20/06/2023", "21/06/2023", "22/06/2023", "23/06/2023", "24/06/2023", "25/06/2023", "26/06/2023", "27/06/2023", "28/06/2023", "29/06/2023", "30/06/2023" }));
+        FiltroFechaHecho.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Filtro3ActionPerformed(evt);
+                FiltroFechaHechoActionPerformed(evt);
             }
         });
 
-        Filtro2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Filtro2.addActionListener(new java.awt.event.ActionListener() {
+        FiltroArmasMedios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ninguno...", "ARMA DE FUEGO", "ARMA BLANCA / CORTOPUNZANTE", "PUNZANTE", "CONTUNDENTES", "ESCOPOLAMINA", "PALANCAS", "NO REPORTADO", "CORTANTES", "LLAVE MAESTRA", "SIN EMPLEO DE ARMAS", " " }));
+        FiltroArmasMedios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Filtro2ActionPerformed(evt);
+                FiltroArmasMediosActionPerformed(evt);
             }
         });
-
-        jLabel3.setFont(new java.awt.Font("Stencil", 0, 14)); // NOI18N
-        jLabel3.setText("Funcion Filtrar");
 
         jLabel4.setFont(new java.awt.Font("Stencil", 0, 14)); // NOI18N
         jLabel4.setText("Reportes de Hurtos por Modalidades ---> ");
@@ -134,6 +157,45 @@ public class InterfazUsuario extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Stencil", 0, 14)); // NOI18N
         jLabel7.setText("Cargar datos a la tabla");
 
+        FiltroGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ninguno...", "NO APLICA", "NO REPORTADO", "MASCULINO", "FEMENINO", " " }));
+        FiltroGenero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FiltroGeneroActionPerformed(evt);
+            }
+        });
+
+        FiltroGrupoEtario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ninguno...", "NO APLICA", "NO REPORTADO", "ADULTOS", "ADOLESCENTES", "MENORES" }));
+        FiltroGrupoEtario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FiltroGrupoEtarioActionPerformed(evt);
+            }
+        });
+
+        FiltroTipoHurto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ninguno...", "HURTO RESIDENCIAS", "HURTO ENTIDADES COMERCIALES" }));
+        FiltroTipoHurto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FiltroTipoHurtoActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setFont(new java.awt.Font("Stencil", 0, 12)); // NOI18N
+        jLabel8.setText("Filtro MUNICIPIO");
+
+        jLabel9.setFont(new java.awt.Font("Stencil", 0, 12)); // NOI18N
+        jLabel9.setText("Filtro Armas medios");
+
+        jLabel10.setFont(new java.awt.Font("Stencil", 0, 12)); // NOI18N
+        jLabel10.setText("Filtro FECHA HECHO");
+
+        jLabel11.setFont(new java.awt.Font("Stencil", 0, 12)); // NOI18N
+        jLabel11.setText("Filtro GENERO");
+
+        jLabel12.setFont(new java.awt.Font("Stencil", 0, 12)); // NOI18N
+        jLabel12.setText("Filtro GRUPO ETARIO");
+
+        jLabel13.setFont(new java.awt.Font("Stencil", 0, 12)); // NOI18N
+        jLabel13.setText("Filtro TIPO DE HURTO");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -148,34 +210,42 @@ public class InterfazUsuario extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel6)
                                 .addComponent(jLabel4))))
+                    .addComponent(jLabel10)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(BotonGraficar, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(Filtro1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Filtro3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Filtro2, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel5)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(FiltroMunicipio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(FiltroFechaHecho, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(FiltroGenero, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(FiltroGrupoEtario, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(FiltroTipoHurto, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(FiltroArmasMedios, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel11))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(BotonFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BotonCargar, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7)
+                            .addComponent(BotonCargar, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)
                             .addComponent(OpcionBarra)
-                            .addComponent(OpcionTorta))))
+                            .addComponent(OpcionTorta)
+                            .addComponent(BotonGraficar, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(27, 27, 27)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -183,66 +253,93 @@ public class InterfazUsuario extends javax.swing.JFrame {
                         .addGap(3, 3, 3)
                         .addComponent(jLabel6)
                         .addGap(18, 18, 18)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
+                            .addComponent(jLabel8)
                             .addComponent(jLabel7))
-                        .addGap(13, 13, 13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(Filtro1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(8, 8, 8)
-                                .addComponent(Filtro2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(FiltroMunicipio, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(7, 7, 7)
+                                .addComponent(jLabel9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Filtro3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel5))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(BotonCargar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(BotonFiltrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(FiltroArmasMedios, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(BotonCargar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(FiltroFechaHecho, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BotonGraficar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addGap(5, 5, 5)
+                                .addComponent(FiltroGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(FiltroGrupoEtario, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(FiltroTipoHurto, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 19, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(BotonGraficar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(OpcionTorta)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(OpcionBarra)))))
-                .addContainerGap(19, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(OpcionBarra)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1225, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 420, Short.MAX_VALUE)
+            .addGap(0, 1390, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 10, Short.MAX_VALUE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 505, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BotonFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonFiltrarActionPerformed
+    private void FiltroFechaHechoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltroFechaHechoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BotonFiltrarActionPerformed
+        String SeleccionFechaHecho = FiltroFechaHecho.getSelectedItem().toString();
+        if ("Ninguno...".equals(SeleccionFechaHecho)) {
+            trs.setRowFilter(null);
+        }else{
+            SeleccionFechaHecho = Pattern.quote(SeleccionFechaHecho);
+            trs.setRowFilter(RowFilter.regexFilter("(?i)"+SeleccionFechaHecho,0)); 
+        }
+    }//GEN-LAST:event_FiltroFechaHechoActionPerformed
 
-    private void Filtro3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Filtro3ActionPerformed
+    private void FiltroArmasMediosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltroArmasMediosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Filtro3ActionPerformed
-
-    private void Filtro2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Filtro2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Filtro2ActionPerformed
+        String SeleccionArmasMedios = FiltroArmasMedios.getSelectedItem().toString();
+        if ("Ninguno...".equals(SeleccionArmasMedios)) {
+            trs.setRowFilter(null);
+        }else{
+            SeleccionArmasMedios = Pattern.quote(SeleccionArmasMedios);
+            trs.setRowFilter(RowFilter.regexFilter("(?i)"+SeleccionArmasMedios,0)); 
+        }
+    }//GEN-LAST:event_FiltroArmasMediosActionPerformed
 
     private void OpcionTortaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpcionTortaActionPerformed
         // TODO add your handling code here:
@@ -257,7 +354,7 @@ public class InterfazUsuario extends javax.swing.JFrame {
         String ArchivoDatos = "Datos_Hurtos_Modalidades.csv";
          try {
             BufferedReader br = new BufferedReader(new FileReader(ArchivoDatos));
-            DefaultTableModel model = (DefaultTableModel) TablaDeFiltros.getModel();
+            model = (DefaultTableModel) TablaDeFiltros.getModel();
             
             String linea;
             while ((linea = br.readLine()) != null) {
@@ -270,7 +367,42 @@ public class InterfazUsuario extends javax.swing.JFrame {
             // Manejo de excepciones en caso de error de lectura del archivo
             e.printStackTrace();
         }
+         
+        trs = new TableRowSorter(TablaDeFiltros.getModel());
+        TablaDeFiltros.setRowSorter(trs);
     }//GEN-LAST:event_BotonCargarActionPerformed
+
+    private void FiltroGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltroGeneroActionPerformed
+        // TODO add your handling code here:
+        String SeleccionGenero = FiltroGenero.getSelectedItem().toString();
+        if ("Ninguno...".equals(SeleccionGenero)) {
+            trs.setRowFilter(null);
+        }else{
+            SeleccionGenero = Pattern.quote(SeleccionGenero);
+            trs.setRowFilter(RowFilter.regexFilter("(?i)"+SeleccionGenero,0)); 
+        }
+    }//GEN-LAST:event_FiltroGeneroActionPerformed
+
+    private void FiltroGrupoEtarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltroGrupoEtarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FiltroGrupoEtarioActionPerformed
+
+    private void FiltroTipoHurtoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltroTipoHurtoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FiltroTipoHurtoActionPerformed
+
+    private void FiltroMunicipioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltroMunicipioActionPerformed
+        // TODO add your handling code here:
+        String SeleccionMunicipio = FiltroMunicipio.getSelectedItem().toString();
+        if ("Ninguno...".equals(SeleccionMunicipio)) {
+            trs.setRowFilter(null);
+        }else{
+            SeleccionMunicipio = Pattern.quote(SeleccionMunicipio);
+            trs.setRowFilter(RowFilter.regexFilter("(?i)"+SeleccionMunicipio,0)); 
+        }
+      
+
+    }//GEN-LAST:event_FiltroMunicipioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -309,21 +441,28 @@ public class InterfazUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonCargar;
-    private javax.swing.JButton BotonFiltrar;
     private javax.swing.JButton BotonGraficar;
-    private javax.swing.JComboBox<String> Filtro1;
-    private javax.swing.JComboBox<String> Filtro2;
-    private javax.swing.JComboBox<String> Filtro3;
+    private javax.swing.JComboBox<String> FiltroArmasMedios;
+    private javax.swing.JComboBox<String> FiltroFechaHecho;
+    private javax.swing.JComboBox<String> FiltroGenero;
+    private javax.swing.JComboBox<String> FiltroGrupoEtario;
+    private javax.swing.JComboBox<String> FiltroMunicipio;
+    private javax.swing.JComboBox<String> FiltroTipoHurto;
     private javax.swing.JCheckBox OpcionBarra;
     private javax.swing.JCheckBox OpcionTorta;
     private javax.swing.JTable TablaDeFiltros;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
