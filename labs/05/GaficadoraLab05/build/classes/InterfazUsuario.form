@@ -330,15 +330,15 @@
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="31">
                 <StringItem index="0" value="Ninguno..."/>
-                <StringItem index="1" value="1/06/2023"/>
-                <StringItem index="2" value="2/06/2023"/>
-                <StringItem index="3" value="3/06/2023"/>
-                <StringItem index="4" value="4/06/2023"/>
-                <StringItem index="5" value="5/06/2023"/>
-                <StringItem index="6" value="6/06/2023"/>
-                <StringItem index="7" value="7/06/2023"/>
-                <StringItem index="8" value="8/06/2023"/>
-                <StringItem index="9" value="9/06/2023"/>
+                <StringItem index="1" value="01/06/2023"/>
+                <StringItem index="2" value="02/06/2023"/>
+                <StringItem index="3" value="03/06/2023"/>
+                <StringItem index="4" value="04/06/2023"/>
+                <StringItem index="5" value="05/06/2023"/>
+                <StringItem index="6" value="06/06/2023"/>
+                <StringItem index="7" value="07/06/2023"/>
+                <StringItem index="8" value="08/06/2023"/>
+                <StringItem index="9" value="09/06/2023"/>
                 <StringItem index="10" value="10/06/2023"/>
                 <StringItem index="11" value="11/06/2023"/>
                 <StringItem index="12" value="12/06/2023"/>
@@ -373,19 +373,18 @@
         <Component class="javax.swing.JComboBox" name="FiltroArmasMedios">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="12">
+              <StringArray count="11">
                 <StringItem index="0" value="Ninguno..."/>
                 <StringItem index="1" value="ARMA DE FUEGO"/>
                 <StringItem index="2" value="ARMA BLANCA / CORTOPUNZANTE"/>
-                <StringItem index="3" value="PUNZANTE"/>
-                <StringItem index="4" value="CONTUNDENTES"/>
-                <StringItem index="5" value="ESCOPOLAMINA"/>
-                <StringItem index="6" value="PALANCAS"/>
-                <StringItem index="7" value="NO REPORTADO"/>
-                <StringItem index="8" value="CORTANTES"/>
-                <StringItem index="9" value="LLAVE MAESTRA"/>
-                <StringItem index="10" value="SIN EMPLEO DE ARMAS"/>
-                <StringItem index="11" value=" "/>
+                <StringItem index="3" value="CONTUNDENTES"/>
+                <StringItem index="4" value="ESCOPOLAMINA"/>
+                <StringItem index="5" value="PALANCAS"/>
+                <StringItem index="6" value="NO REPORTADO"/>
+                <StringItem index="7" value="CORTANTES"/>
+                <StringItem index="8" value="LLAVE MAESTRA"/>
+                <StringItem index="9" value="SIN EMPLEO DE ARMAS"/>
+                <StringItem index="10" value=" "/>
               </StringArray>
             </Property>
           </Properties>

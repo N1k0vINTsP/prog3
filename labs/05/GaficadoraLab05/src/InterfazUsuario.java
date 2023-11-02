@@ -11,6 +11,7 @@ import org.jfree.data.xy.XYSeriesCollection;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -30,6 +31,81 @@ public class InterfazUsuario extends javax.swing.JFrame {
         
     }
     
+    private void aplicarFiltros() {
+    // Inicializar el filtro
+    RowFilter<DefaultTableModel, Object> filtro = null;
+
+    // Aplicar filtro de municipio
+    String seleccionMunicipio = FiltroMunicipio.getSelectedItem().toString();
+    if (!"Ninguno...".equals(seleccionMunicipio)) {
+        seleccionMunicipio = Pattern.quote(seleccionMunicipio);
+        RowFilter<DefaultTableModel, Object> filtroMunicipio = RowFilter.regexFilter("(?i)" + seleccionMunicipio, 0);
+        filtro = filtroMunicipio;
+    }
+
+    // Aplicar filtro de armas/medios
+    String seleccionArmasMedios = FiltroArmasMedios.getSelectedItem().toString();
+    if (!"Ninguno...".equals(seleccionArmasMedios)) {
+        seleccionArmasMedios = Pattern.quote(seleccionArmasMedios);
+        RowFilter<DefaultTableModel, Object> filtroArmasMedios = RowFilter.regexFilter("(?i)" + seleccionArmasMedios, 1);
+        if (filtro == null) {
+            filtro = filtroArmasMedios;
+        } else {
+            filtro = RowFilter.andFilter(Arrays.asList(filtro, filtroArmasMedios));
+        }
+    }
+
+    // Aplicar filtro de Fecha Hecho
+    String seleccionFechaHecho = FiltroFechaHecho.getSelectedItem().toString();
+    if (!"Ninguno...".equals(seleccionFechaHecho)) {
+        RowFilter<DefaultTableModel, Object> filtroFechaHecho = RowFilter.regexFilter(seleccionFechaHecho, 2);
+        if (filtro == null) {
+            filtro = filtroFechaHecho;
+        } else {
+            filtro = RowFilter.andFilter(Arrays.asList(filtro, filtroFechaHecho));
+        }
+    }
+    
+    // Aplicar filtro de Genero
+    String seleccionGenero = FiltroGenero.getSelectedItem().toString();
+    if (!"Ninguno...".equals(seleccionGenero)) {
+        seleccionGenero = Pattern.quote(seleccionGenero);
+        RowFilter<DefaultTableModel, Object> filtroGenero = RowFilter.regexFilter("(?i)" + seleccionGenero, 3);
+        if (filtro == null) {
+            filtro = filtroGenero;
+        } else {
+            filtro = RowFilter.andFilter(Arrays.asList(filtro, filtroGenero));
+        }
+    }
+    
+    // Aplicar filtro de Grupo Etario
+    String seleccionGEtario = FiltroGrupoEtario.getSelectedItem().toString();
+    if (!"Ninguno...".equals(seleccionGEtario)) {
+        seleccionGEtario = Pattern.quote(seleccionGEtario);
+        RowFilter<DefaultTableModel, Object> filtroGEtario = RowFilter.regexFilter("(?i)" + seleccionGEtario, 4);
+        if (filtro == null) {
+            filtro = filtroGEtario;
+        } else {
+            filtro = RowFilter.andFilter(Arrays.asList(filtro, filtroGEtario));
+        }
+    }
+
+    // Aplicar filtro de Tipo de Hurto
+    String seleccionTHurto = FiltroTipoHurto.getSelectedItem().toString();
+    if (!"Ninguno...".equals(seleccionTHurto)) {
+        seleccionTHurto = Pattern.quote(seleccionTHurto);
+        RowFilter<DefaultTableModel, Object> filtroTHurto = RowFilter.regexFilter("(?i)" + seleccionTHurto, 5);
+        if (filtro == null) {
+            filtro = filtroTHurto;
+        } else {
+            filtro = RowFilter.andFilter(Arrays.asList(filtro, filtroTHurto));
+        }
+    }
+
+
+    // Aplicar el filtro a la tabla
+    trs.setRowFilter(filtro);
+}
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -96,14 +172,14 @@ public class InterfazUsuario extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Stencil", 0, 14)); // NOI18N
         jLabel2.setText("Filtros");
 
-        FiltroFechaHecho.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ninguno...", "1/06/2023", "2/06/2023", "3/06/2023", "4/06/2023", "5/06/2023", "6/06/2023", "7/06/2023", "8/06/2023", "9/06/2023", "10/06/2023", "11/06/2023", "12/06/2023", "13/06/2023", "14/06/2023", "15/06/2023", "16/06/2023", "17/06/2023", "18/06/2023", "19/06/2023", "20/06/2023", "21/06/2023", "22/06/2023", "23/06/2023", "24/06/2023", "25/06/2023", "26/06/2023", "27/06/2023", "28/06/2023", "29/06/2023", "30/06/2023" }));
+        FiltroFechaHecho.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ninguno...", "01/06/2023", "02/06/2023", "03/06/2023", "04/06/2023", "05/06/2023", "06/06/2023", "07/06/2023", "08/06/2023", "09/06/2023", "10/06/2023", "11/06/2023", "12/06/2023", "13/06/2023", "14/06/2023", "15/06/2023", "16/06/2023", "17/06/2023", "18/06/2023", "19/06/2023", "20/06/2023", "21/06/2023", "22/06/2023", "23/06/2023", "24/06/2023", "25/06/2023", "26/06/2023", "27/06/2023", "28/06/2023", "29/06/2023", "30/06/2023" }));
         FiltroFechaHecho.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FiltroFechaHechoActionPerformed(evt);
             }
         });
 
-        FiltroArmasMedios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ninguno...", "ARMA DE FUEGO", "ARMA BLANCA / CORTOPUNZANTE", "PUNZANTE", "CONTUNDENTES", "ESCOPOLAMINA", "PALANCAS", "NO REPORTADO", "CORTANTES", "LLAVE MAESTRA", "SIN EMPLEO DE ARMAS", " " }));
+        FiltroArmasMedios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ninguno...", "ARMA DE FUEGO", "ARMA BLANCA / CORTOPUNZANTE", "CONTUNDENTES", "ESCOPOLAMINA", "PALANCAS", "NO REPORTADO", "CORTANTES", "LLAVE MAESTRA", "SIN EMPLEO DE ARMAS", " " }));
         FiltroArmasMedios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FiltroArmasMediosActionPerformed(evt);
@@ -307,24 +383,12 @@ public class InterfazUsuario extends javax.swing.JFrame {
 
     private void FiltroFechaHechoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltroFechaHechoActionPerformed
         // TODO add your handling code here:
-        String SeleccionFechaHecho = FiltroFechaHecho.getSelectedItem().toString();
-        if ("Ninguno...".equals(SeleccionFechaHecho)) {
-            trs.setRowFilter(null);
-        }else{
-            SeleccionFechaHecho = Pattern.quote(SeleccionFechaHecho);
-            trs.setRowFilter(RowFilter.regexFilter("(?i)"+SeleccionFechaHecho,2)); 
-        }
+        aplicarFiltros();
     }//GEN-LAST:event_FiltroFechaHechoActionPerformed
 
     private void FiltroArmasMediosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltroArmasMediosActionPerformed
         // TODO add your handling code here:
-        String SeleccionArmasMedios = FiltroArmasMedios.getSelectedItem().toString();
-        if ("Ninguno...".equals(SeleccionArmasMedios)) {
-            trs.setRowFilter(null);
-        }else{
-            SeleccionArmasMedios = Pattern.quote(SeleccionArmasMedios);
-            trs.setRowFilter(RowFilter.regexFilter("(?i)"+SeleccionArmasMedios,1)); 
-        }
+        aplicarFiltros();
     }//GEN-LAST:event_FiltroArmasMediosActionPerformed
 
     private void OpcionTortaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpcionTortaActionPerformed
@@ -360,47 +424,22 @@ public class InterfazUsuario extends javax.swing.JFrame {
 
     private void FiltroGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltroGeneroActionPerformed
         // TODO add your handling code here:
-        String SeleccionGrupoEtario = FiltroGrupoEtario.getSelectedItem().toString();
-        if ("Ninguno...".equals(SeleccionGrupoEtario)) {
-            trs.setRowFilter(null);
-        }else{
-            SeleccionGrupoEtario = Pattern.quote(SeleccionGrupoEtario);
-            trs.setRowFilter(RowFilter.regexFilter("(?i)"+SeleccionGrupoEtario,3)); 
-        }
+        aplicarFiltros();
     }//GEN-LAST:event_FiltroGeneroActionPerformed
 
     private void FiltroGrupoEtarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltroGrupoEtarioActionPerformed
         // TODO add your handling code here:
-        String SeleccionFechaHecho = FiltroFechaHecho.getSelectedItem().toString();
-        if ("Ninguno...".equals(SeleccionFechaHecho)) {
-            trs.setRowFilter(null);
-        }else{
-            SeleccionFechaHecho = Pattern.quote(SeleccionFechaHecho);
-            trs.setRowFilter(RowFilter.regexFilter("(?i)"+SeleccionFechaHecho,4)); 
-        }
+        aplicarFiltros();
     }//GEN-LAST:event_FiltroGrupoEtarioActionPerformed
 
     private void FiltroTipoHurtoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltroTipoHurtoActionPerformed
         // TODO add your handling code here:
-        String SeleccionTipoHurto = FiltroTipoHurto.getSelectedItem().toString();
-        if ("Ninguno...".equals(SeleccionTipoHurto)) {
-            trs.setRowFilter(null);
-        }else{
-            SeleccionTipoHurto = Pattern.quote(SeleccionTipoHurto);
-            trs.setRowFilter(RowFilter.regexFilter("(?i)"+SeleccionTipoHurto,5)); 
-        }
+        aplicarFiltros();
     }//GEN-LAST:event_FiltroTipoHurtoActionPerformed
 
     private void FiltroMunicipioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltroMunicipioActionPerformed
         // TODO add your handling code here:
-        String SeleccionMunicipio = FiltroMunicipio.getSelectedItem().toString();
-        if ("Ninguno...".equals(SeleccionMunicipio)) {
-            trs.setRowFilter(null);
-        }else{
-            SeleccionMunicipio = Pattern.quote(SeleccionMunicipio);
-            trs.setRowFilter(RowFilter.regexFilter("(?i)"+SeleccionMunicipio,0)); 
-        }
-      
+        aplicarFiltros();
 
     }//GEN-LAST:event_FiltroMunicipioActionPerformed
 
