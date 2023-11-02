@@ -30,20 +30,6 @@ public class InterfazUsuario extends javax.swing.JFrame {
         
     }
     
-//    private void FiltracionEnTabla(){
-//
-//        DefaultTableModel model = (DefaultTableModel) TablaDeFiltros.getModel();
-//        model.setRowCount(0); // Limpia la tabla
-//
-//        String SeleccionMunicipio = FiltroMunicipio.getSelectedItem().toString();
-//        String SeleccionArmasMedios = FiltroArmasMedios.getSelectedItem().toString();
-//        String SeleccionFechaHecho = FiltroFechaHecho.getSelectedItem().toString();
-//        String SeleccionGenero = FiltroGenero.getSelectedItem().toString();
-//        String SeleccionGrupoEtario = FiltroGrupoEtario.getSelectedItem().toString();
-//        String SeleccionTipoHurto = FiltroTipoHurto.getSelectedItem().toString();
-//
-//    }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -326,7 +312,7 @@ public class InterfazUsuario extends javax.swing.JFrame {
             trs.setRowFilter(null);
         }else{
             SeleccionFechaHecho = Pattern.quote(SeleccionFechaHecho);
-            trs.setRowFilter(RowFilter.regexFilter("(?i)"+SeleccionFechaHecho,0)); 
+            trs.setRowFilter(RowFilter.regexFilter("(?i)"+SeleccionFechaHecho,2)); 
         }
     }//GEN-LAST:event_FiltroFechaHechoActionPerformed
 
@@ -337,7 +323,7 @@ public class InterfazUsuario extends javax.swing.JFrame {
             trs.setRowFilter(null);
         }else{
             SeleccionArmasMedios = Pattern.quote(SeleccionArmasMedios);
-            trs.setRowFilter(RowFilter.regexFilter("(?i)"+SeleccionArmasMedios,0)); 
+            trs.setRowFilter(RowFilter.regexFilter("(?i)"+SeleccionArmasMedios,1)); 
         }
     }//GEN-LAST:event_FiltroArmasMediosActionPerformed
 
@@ -374,21 +360,35 @@ public class InterfazUsuario extends javax.swing.JFrame {
 
     private void FiltroGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltroGeneroActionPerformed
         // TODO add your handling code here:
-        String SeleccionGenero = FiltroGenero.getSelectedItem().toString();
-        if ("Ninguno...".equals(SeleccionGenero)) {
+        String SeleccionGrupoEtario = FiltroGrupoEtario.getSelectedItem().toString();
+        if ("Ninguno...".equals(SeleccionGrupoEtario)) {
             trs.setRowFilter(null);
         }else{
-            SeleccionGenero = Pattern.quote(SeleccionGenero);
-            trs.setRowFilter(RowFilter.regexFilter("(?i)"+SeleccionGenero,0)); 
+            SeleccionGrupoEtario = Pattern.quote(SeleccionGrupoEtario);
+            trs.setRowFilter(RowFilter.regexFilter("(?i)"+SeleccionGrupoEtario,3)); 
         }
     }//GEN-LAST:event_FiltroGeneroActionPerformed
 
     private void FiltroGrupoEtarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltroGrupoEtarioActionPerformed
         // TODO add your handling code here:
+        String SeleccionFechaHecho = FiltroFechaHecho.getSelectedItem().toString();
+        if ("Ninguno...".equals(SeleccionFechaHecho)) {
+            trs.setRowFilter(null);
+        }else{
+            SeleccionFechaHecho = Pattern.quote(SeleccionFechaHecho);
+            trs.setRowFilter(RowFilter.regexFilter("(?i)"+SeleccionFechaHecho,4)); 
+        }
     }//GEN-LAST:event_FiltroGrupoEtarioActionPerformed
 
     private void FiltroTipoHurtoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltroTipoHurtoActionPerformed
         // TODO add your handling code here:
+        String SeleccionTipoHurto = FiltroTipoHurto.getSelectedItem().toString();
+        if ("Ninguno...".equals(SeleccionTipoHurto)) {
+            trs.setRowFilter(null);
+        }else{
+            SeleccionTipoHurto = Pattern.quote(SeleccionTipoHurto);
+            trs.setRowFilter(RowFilter.regexFilter("(?i)"+SeleccionTipoHurto,5)); 
+        }
     }//GEN-LAST:event_FiltroTipoHurtoActionPerformed
 
     private void FiltroMunicipioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltroMunicipioActionPerformed
