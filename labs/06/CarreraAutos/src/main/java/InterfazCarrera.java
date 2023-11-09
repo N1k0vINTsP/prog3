@@ -50,7 +50,7 @@ public class InterfazCarrera extends javax.swing.JFrame {
         Competidor4 = new javax.swing.JLabel();
         Competidor5 = new javax.swing.JLabel();
         META = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        BOTON_INICIO = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,7 +69,12 @@ public class InterfazCarrera extends javax.swing.JFrame {
 
         META.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MetaImg/MarcaMeta.jpg"))); // NOI18N
 
-        jButton1.setText("En sus marcas, listos...FUERAA!!!");
+        BOTON_INICIO.setText("En sus marcas, listos...FUERAA!!!");
+        BOTON_INICIO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BOTON_INICIOActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -90,7 +95,7 @@ public class InterfazCarrera extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(378, 378, 378)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(BOTON_INICIO, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(302, 302, 302)
                         .addComponent(jLabel1)))
@@ -117,7 +122,7 @@ public class InterfazCarrera extends javax.swing.JFrame {
                         .addGap(79, 79, 79)
                         .addComponent(META, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BOTON_INICIO, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
         );
 
@@ -136,6 +141,30 @@ public class InterfazCarrera extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BOTON_INICIOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BOTON_INICIOActionPerformed
+        // TODO add your handling code here:
+        
+        Competidor1.setLocation(0, Competidor1.getLocation().y);
+        Competidor2.setLocation(0, Competidor2.getLocation().y);
+        Competidor3.setLocation(0, Competidor3.getLocation().y);
+        Competidor4.setLocation(0, Competidor4.getLocation().y);
+        Competidor5.setLocation(0, Competidor5.getLocation().y);
+        
+        HilosCarrera Hilo1 = new HilosCarrera(Competidor1, this);
+        HilosCarrera Hilo2 = new HilosCarrera(Competidor2, this);
+        HilosCarrera Hilo3 = new HilosCarrera(Competidor3, this);
+        HilosCarrera Hilo4 = new HilosCarrera(Competidor4, this);
+        HilosCarrera Hilo5 = new HilosCarrera(Competidor5, this);
+        
+        Hilo1.start();
+        Hilo2.start();
+        Hilo3.start();
+        Hilo4.start();
+        Hilo5.start();
+        
+        
+    }//GEN-LAST:event_BOTON_INICIOActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,13 +202,13 @@ public class InterfazCarrera extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BOTON_INICIO;
     private javax.swing.JLabel Competidor1;
     private javax.swing.JLabel Competidor2;
     private javax.swing.JLabel Competidor3;
     private javax.swing.JLabel Competidor4;
     private javax.swing.JLabel Competidor5;
     private javax.swing.JLabel META;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
