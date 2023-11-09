@@ -1,17 +1,25 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 
-/**
- *
- * @author Estudiante
- */
+import CLASES_CASILLAS.Casilla1;
+import CLASES_CASILLAS.Casilla2;
+import CLASES_CASILLAS.Casilla3;
+import CLASES_CASILLAS.Casilla4;
+
+
+
+
 public class DiseñoMaquina extends javax.swing.JFrame {
 
-    /**
-     * Creates new form DiseñoMaquina
-     */
+
+    Casilla1 c1;
+    Casilla2 c2;
+    Casilla3 c3;
+    Casilla4 c4;
+    
+    boolean Resultadoc1 = false;
+    boolean Resultadoc2 = false;
+    boolean Resultadoc3 = false;
+    boolean Resultadoc4 = false;
+    
     public DiseñoMaquina() {
         initComponents();
     }
@@ -26,10 +34,10 @@ public class DiseñoMaquina extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        Ico1 = new javax.swing.JLabel();
+        Ico2 = new javax.swing.JLabel();
+        Ico3 = new javax.swing.JLabel();
+        Ico4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         bt_iniciar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
@@ -42,15 +50,15 @@ public class DiseñoMaquina extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 204, 51));
         jPanel1.setForeground(new java.awt.Color(255, 204, 0));
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Estudiante\\Documents\\NetBeansProjects\\Tragamonedas\\src\\main\\java\\Icono1.png")); // NOI18N
+        Ico1.setBackground(new java.awt.Color(255, 255, 255));
+        Ico1.setForeground(new java.awt.Color(255, 255, 255));
+        Ico1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Estudiante\\Documents\\NetBeansProjects\\Tragamonedas\\src\\main\\java\\Icono1.png")); // NOI18N
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Estudiante\\Documents\\NetBeansProjects\\Tragamonedas\\src\\main\\java\\Icono2.png")); // NOI18N
+        Ico2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Estudiante\\Documents\\NetBeansProjects\\Tragamonedas\\src\\main\\java\\Icono2.png")); // NOI18N
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Estudiante\\Documents\\NetBeansProjects\\Tragamonedas\\src\\main\\java\\Icono3.png")); // NOI18N
+        Ico3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Estudiante\\Documents\\NetBeansProjects\\Tragamonedas\\src\\main\\java\\Icono3.png")); // NOI18N
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Estudiante\\Documents\\NetBeansProjects\\Tragamonedas\\src\\main\\java\\Icono4.png")); // NOI18N
+        Ico4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Estudiante\\Documents\\NetBeansProjects\\Tragamonedas\\src\\main\\java\\Icono4.png")); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Stencil", 0, 36)); // NOI18N
         jLabel6.setText("CASINO FORTUNA");
@@ -96,13 +104,13 @@ public class DiseñoMaquina extends javax.swing.JFrame {
                         .addGap(31, 31, 31)
                         .addComponent(bt_iniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(Ico1)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel2)
+                        .addComponent(Ico2)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel3)
+                        .addComponent(Ico3)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel4))
+                        .addComponent(Ico4))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(168, 168, 168)
                         .addComponent(jLabel6)))
@@ -115,10 +123,10 @@ public class DiseñoMaquina extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+                    .addComponent(Ico3)
+                    .addComponent(Ico4)
+                    .addComponent(Ico1)
+                    .addComponent(Ico2))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -151,7 +159,26 @@ public class DiseñoMaquina extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bt_iniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_iniciarActionPerformed
-        // TODO add your handling code here:
+        
+        int timems = 100;
+        
+        c1 = new Casilla1(timems);
+        c2 = new Casilla2(timems);
+        c3 = new Casilla3(timems);
+        c4 = new Casilla4(timems);
+        
+        Resultadoc1 = false;
+        Resultadoc2 = false;
+        Resultadoc3 = false;
+        Resultadoc4 = false;
+
+        bt_iniciar.setEnabled(false);
+        
+        c1.start();
+        c2.start();
+        c3.start();
+        c4.start();
+        
     }//GEN-LAST:event_bt_iniciarActionPerformed
 
     /**
@@ -190,11 +217,11 @@ public class DiseñoMaquina extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Ico1;
+    private javax.swing.JLabel Ico2;
+    private javax.swing.JLabel Ico3;
+    private javax.swing.JLabel Ico4;
     private javax.swing.JButton bt_iniciar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
