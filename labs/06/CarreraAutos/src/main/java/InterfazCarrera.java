@@ -43,7 +43,6 @@ public class InterfazCarrera extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         Competidor1 = new javax.swing.JLabel();
         Competidor2 = new javax.swing.JLabel();
         Competidor3 = new javax.swing.JLabel();
@@ -51,64 +50,44 @@ public class InterfazCarrera extends javax.swing.JFrame {
         Competidor5 = new javax.swing.JLabel();
         META = new javax.swing.JLabel();
         BOTON_INICIO = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Stencil", 0, 48)); // NOI18N
-        jLabel1.setText("CARRERA DE AUTOS");
+        Competidor1.setIcon(new javax.swing.ImageIcon("D:\\UNIVERSIDAD\\DEBERES 3° Semestre\\PROGRAMACION III\\prog3-main\\labs\\06\\CarreraAutos\\src\\main\\java\\Carro1.png")); // NOI18N
 
-        Competidor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Competidores/Carro1.png"))); // NOI18N
+        Competidor2.setIcon(new javax.swing.ImageIcon("D:\\UNIVERSIDAD\\DEBERES 3° Semestre\\PROGRAMACION III\\prog3-main\\labs\\06\\CarreraAutos\\src\\main\\java\\Carro2.png")); // NOI18N
 
-        Competidor2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Competidores/Carro2.png"))); // NOI18N
+        Competidor3.setIcon(new javax.swing.ImageIcon("D:\\UNIVERSIDAD\\DEBERES 3° Semestre\\PROGRAMACION III\\prog3-main\\labs\\06\\CarreraAutos\\src\\main\\java\\Carro3.png")); // NOI18N
 
-        Competidor3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Competidores/Carro3.png"))); // NOI18N
+        Competidor4.setIcon(new javax.swing.ImageIcon("D:\\UNIVERSIDAD\\DEBERES 3° Semestre\\PROGRAMACION III\\prog3-main\\labs\\06\\CarreraAutos\\src\\main\\java\\Carro4.png")); // NOI18N
 
-        Competidor4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Competidores/Carro4.png"))); // NOI18N
+        Competidor5.setIcon(new javax.swing.ImageIcon("D:\\UNIVERSIDAD\\DEBERES 3° Semestre\\PROGRAMACION III\\prog3-main\\labs\\06\\CarreraAutos\\src\\main\\java\\Carro5.png")); // NOI18N
 
-        Competidor5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Competidores/Carro5.png"))); // NOI18N
-
-        META.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MetaImg/MarcaMeta.jpg"))); // NOI18N
-
-        BOTON_INICIO.setText("En sus marcas, listos...FUERAA!!!");
-        BOTON_INICIO.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BOTON_INICIOActionPerformed(evt);
-            }
-        });
+        META.setIcon(new javax.swing.ImageIcon("D:\\UNIVERSIDAD\\DEBERES 3° Semestre\\PROGRAMACION III\\prog3-main\\labs\\06\\CarreraAutos\\src\\main\\java\\MarcaMeta.jpg")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Competidor4)
-                    .addComponent(Competidor5)
-                    .addComponent(Competidor2)
-                    .addComponent(Competidor3)
+                .addGap(54, 54, 54)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Competidor4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Competidor5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Competidor2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Competidor3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Competidor1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(META, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(378, 378, 378)
-                        .addComponent(BOTON_INICIO, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(302, 302, 302)
-                        .addComponent(jLabel1)))
-                .addContainerGap(301, Short.MAX_VALUE))
+                .addGap(37, 37, 37))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabel1)
-                        .addGap(22, 22, 22)
+                        .addGap(46, 46, 46)
                         .addComponent(Competidor1)
                         .addGap(18, 18, 18)
                         .addComponent(Competidor2)
@@ -119,24 +98,47 @@ public class InterfazCarrera extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(Competidor5))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
+                        .addGap(18, 18, 18)
                         .addComponent(META, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BOTON_INICIO, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        BOTON_INICIO.setText("En sus marcas, listos...FUERAA!!!");
+        BOTON_INICIO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BOTON_INICIOActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Stencil", 0, 48)); // NOI18N
+        jLabel1.setText("CARRERA DE AUTOS");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(BOTON_INICIO, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(358, 358, 358))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(295, 295, 295)
+                .addComponent(jLabel1)
+                .addContainerGap(308, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(17, 17, 17)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(BOTON_INICIO, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
