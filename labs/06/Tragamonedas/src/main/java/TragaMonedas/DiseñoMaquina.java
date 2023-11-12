@@ -49,10 +49,10 @@ public class DiseñoMaquina extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        CasillaIco1 = new javax.swing.JLabel();
+        CasillaIco2 = new javax.swing.JLabel();
+        CasillaIco3 = new javax.swing.JLabel();
+        CasillaIco4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,13 +86,13 @@ public class DiseñoMaquina extends javax.swing.JFrame {
 
         jTextField2.setText("jTextField1");
 
-        jLabel1.setText("jLabel1");
+        CasillaIco1.setIcon(new javax.swing.ImageIcon("D:\\UNIVERSIDAD\\DEBERES 3° Semestre\\PROGRAMACION III\\prog3-main\\labs\\06\\Tragamonedas\\src\\main\\java\\ICONOS\\Icono1.png")); // NOI18N
 
-        jLabel2.setText("jLabel2");
+        CasillaIco2.setIcon(new javax.swing.ImageIcon("D:\\UNIVERSIDAD\\DEBERES 3° Semestre\\PROGRAMACION III\\prog3-main\\labs\\06\\Tragamonedas\\src\\main\\java\\ICONOS\\Icono2.png")); // NOI18N
 
-        jLabel3.setText("jLabel3");
+        CasillaIco3.setIcon(new javax.swing.ImageIcon("D:\\UNIVERSIDAD\\DEBERES 3° Semestre\\PROGRAMACION III\\prog3-main\\labs\\06\\Tragamonedas\\src\\main\\java\\ICONOS\\Icono3.png")); // NOI18N
 
-        jLabel4.setText("jLabel4");
+        CasillaIco4.setIcon(new javax.swing.ImageIcon("D:\\UNIVERSIDAD\\DEBERES 3° Semestre\\PROGRAMACION III\\prog3-main\\labs\\06\\Tragamonedas\\src\\main\\java\\ICONOS\\Icono4.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -106,16 +106,22 @@ public class DiseñoMaquina extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(Ico2)
                         .addGap(18, 18, 18)
+                        .addComponent(Ico3)
+                        .addGap(18, 18, 18)
+                        .addComponent(Ico4)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(Ico3)
+                                .addGap(95, 95, 95)
+                                .addComponent(jLabel6))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(63, 63, 63)
+                                .addComponent(CasillaIco1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(CasillaIco2)
                                 .addGap(18, 18, 18)
-                                .addComponent(Ico4)))
-                        .addGap(95, 95, 95)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel6)))
+                                .addComponent(CasillaIco3)
+                                .addGap(18, 18, 18)
+                                .addComponent(CasillaIco4))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7)
@@ -126,14 +132,9 @@ public class DiseñoMaquina extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextField2)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(31, 31, 31)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(122, 122, 122)
-                                .addComponent(jLabel4))
-                            .addComponent(bt_iniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(23, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(bt_iniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,34 +142,34 @@ public class DiseñoMaquina extends javax.swing.JFrame {
                 .addGap(7, 7, 7)
                 .addComponent(jLabel6)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Ico3)
-                    .addComponent(Ico4)
-                    .addComponent(Ico1)
-                    .addComponent(Ico2))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(70, 70, 70))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(CasillaIco1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(CasillaIco3, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(CasillaIco4)
+                            .addComponent(CasillaIco2))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addGap(18, 18, 18)
-                        .addComponent(bt_iniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(41, Short.MAX_VALUE))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Ico3)
+                            .addComponent(Ico4)
+                            .addComponent(Ico1)
+                            .addComponent(Ico2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 90, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(70, 70, 70))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(bt_iniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(47, 47, 47))))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -179,7 +180,9 @@ public class DiseñoMaquina extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -244,15 +247,15 @@ public class DiseñoMaquina extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JLabel CasillaIco1;
+    public static javax.swing.JLabel CasillaIco2;
+    public static javax.swing.JLabel CasillaIco3;
+    public static javax.swing.JLabel CasillaIco4;
     private javax.swing.JLabel Ico1;
     private javax.swing.JLabel Ico2;
     private javax.swing.JLabel Ico3;
     private javax.swing.JLabel Ico4;
     private javax.swing.JButton bt_iniciar;
-    public static javax.swing.JLabel jLabel1;
-    public static javax.swing.JLabel jLabel2;
-    public static javax.swing.JLabel jLabel3;
-    public static javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -270,9 +273,9 @@ private void DarResultado(){
             Logger.getLogger(Casilla1.class.getName()).log(Level.SEVERE, null, ex);
         }
         bt_iniciar.setEnabled(true);
-        if(jLabel1.getIcon().toString().equals(jLabel2.getIcon().toString()) && 
-                jLabel1.getIcon().toString().equals(jLabel3.getIcon().toString()) && 
-                jLabel1.getIcon().toString().equals(jLabel4.getIcon().toString())){
+        if(CasillaIco1.getIcon().toString().equals(CasillaIco2.getIcon().toString()) && 
+                CasillaIco1.getIcon().toString().equals(CasillaIco3.getIcon().toString()) && 
+                CasillaIco1.getIcon().toString().equals(CasillaIco4.getIcon().toString())){
             
             JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");   
         }else{

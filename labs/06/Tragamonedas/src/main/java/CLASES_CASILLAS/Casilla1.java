@@ -20,7 +20,7 @@ public class Casilla1 extends Thread {
             int num_Icono = (int)(Math.random()*(5)+ 1);
             String Arch = "src\\ICONOS\\Icono"+ num_Icono + ".png";
             ImageIcon imageIcon = new ImageIcon(Arch);
-            TragaMonedas.DiseñoMaquina.jLabel1.setIcon(imageIcon);
+            TragaMonedas.DiseñoMaquina.CasillaIco1.setIcon(imageIcon);
             
             try{
                 Thread.sleep(time);
