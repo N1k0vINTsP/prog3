@@ -8,15 +8,21 @@ import javax.swing.ImageIcon;
 public class Casilla1 extends Thread {
     
     private int time;
+    private volatile boolean detener = false; // Variable de control
+
     
     public Casilla1(int ms){
         
         this.time = ms;
     }
     
+    public void detenerCasilla(){
+        detener = true;
+    }
+    
     public void run(){
-        while(true){
-            
+        while(!detener){
+         
             int num_Icono = (int)(Math.random()*(5)+ 1);
             String Arch = "src\\ICONOS\\Icono"+ num_Icono + ".png";
             ImageIcon imageIcon = new ImageIcon(Arch);

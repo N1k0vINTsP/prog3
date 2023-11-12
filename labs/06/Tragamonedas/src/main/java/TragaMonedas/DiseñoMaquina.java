@@ -8,8 +8,7 @@ import CLASES_CASILLAS.Casilla4;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-
-
+import java.lang.Thread;
 
 
 public class DiseñoMaquina extends javax.swing.JFrame {
@@ -53,6 +52,10 @@ public class DiseñoMaquina extends javax.swing.JFrame {
         CasillaIco2 = new javax.swing.JLabel();
         CasillaIco3 = new javax.swing.JLabel();
         CasillaIco4 = new javax.swing.JLabel();
+        Detener1 = new javax.swing.JButton();
+        Detener2 = new javax.swing.JButton();
+        Detener3 = new javax.swing.JButton();
+        Detener4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,6 +97,34 @@ public class DiseñoMaquina extends javax.swing.JFrame {
 
         CasillaIco4.setIcon(new javax.swing.ImageIcon("D:\\UNIVERSIDAD\\DEBERES 3° Semestre\\PROGRAMACION III\\prog3-main\\labs\\06\\Tragamonedas\\src\\main\\java\\ICONOS\\Icono4.png")); // NOI18N
 
+        Detener1.setText("DETENER");
+        Detener1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Detener1ActionPerformed(evt);
+            }
+        });
+
+        Detener2.setText("DETENER");
+        Detener2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Detener2ActionPerformed(evt);
+            }
+        });
+
+        Detener3.setText("DETENER");
+        Detener3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Detener3ActionPerformed(evt);
+            }
+        });
+
+        Detener4.setText("DETENER");
+        Detener4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Detener4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -115,13 +146,24 @@ public class DiseñoMaquina extends javax.swing.JFrame {
                                 .addComponent(jLabel6))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(63, 63, 63)
-                                .addComponent(CasillaIco1)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(Detener1)
+                                    .addComponent(CasillaIco1))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(CasillaIco2)
-                                .addGap(18, 18, 18)
-                                .addComponent(CasillaIco3)
-                                .addGap(18, 18, 18)
-                                .addComponent(CasillaIco4))))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(CasillaIco2)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(CasillaIco3)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(CasillaIco4))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addComponent(Detener2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(Detener3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(Detener4))))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7)
@@ -143,33 +185,36 @@ public class DiseñoMaquina extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CasillaIco1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(CasillaIco3, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(CasillaIco4)
-                            .addComponent(CasillaIco2))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Ico3)
-                            .addComponent(Ico4)
-                            .addComponent(Ico1)
-                            .addComponent(Ico2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 90, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(70, 70, 70))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(bt_iniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(47, 47, 47))))))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(CasillaIco1, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(CasillaIco3, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(CasillaIco4, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(CasillaIco2))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(Ico3)
+                        .addComponent(Ico4)
+                        .addComponent(Ico1)
+                        .addComponent(Ico2)))
+                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Detener1)
+                    .addComponent(Detener2)
+                    .addComponent(Detener3)
+                    .addComponent(Detener4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(70, 70, 70))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(bt_iniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(47, 47, 47))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -180,9 +225,7 @@ public class DiseñoMaquina extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -210,6 +253,34 @@ public class DiseñoMaquina extends javax.swing.JFrame {
         c4.start();
         
     }//GEN-LAST:event_bt_iniciarActionPerformed
+
+    private void Detener1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Detener1ActionPerformed
+        // TODO add your handling code here:
+        c1.detenerCasilla();
+        Resultadoc1 = true;
+        DarResultado();
+    }//GEN-LAST:event_Detener1ActionPerformed
+
+    private void Detener2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Detener2ActionPerformed
+        // TODO add your handling code here:
+        c2.detenerCasilla();
+        Resultadoc2 = true;
+        DarResultado();
+    }//GEN-LAST:event_Detener2ActionPerformed
+
+    private void Detener3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Detener3ActionPerformed
+        // TODO add your handling code here:
+        c3.detenerCasilla();
+        Resultadoc3 = true;
+        DarResultado();
+    }//GEN-LAST:event_Detener3ActionPerformed
+
+    private void Detener4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Detener4ActionPerformed
+        // TODO add your handling code here:
+        c4.detenerCasilla();
+        Resultadoc4 = true;
+        DarResultado();
+    }//GEN-LAST:event_Detener4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -251,6 +322,10 @@ public class DiseñoMaquina extends javax.swing.JFrame {
     public static javax.swing.JLabel CasillaIco2;
     public static javax.swing.JLabel CasillaIco3;
     public static javax.swing.JLabel CasillaIco4;
+    private javax.swing.JButton Detener1;
+    private javax.swing.JButton Detener2;
+    private javax.swing.JButton Detener3;
+    private javax.swing.JButton Detener4;
     private javax.swing.JLabel Ico1;
     private javax.swing.JLabel Ico2;
     private javax.swing.JLabel Ico3;
