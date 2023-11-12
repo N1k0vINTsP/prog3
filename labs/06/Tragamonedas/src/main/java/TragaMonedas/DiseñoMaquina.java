@@ -8,12 +8,12 @@ import CLASES_CASILLAS.Casilla4;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import java.lang.Thread;
-
 
 public class DiseñoMaquina extends javax.swing.JFrame {
 
-
+    private int fondos = 0;  // Fondos iniciales
+    private int apuesta = 0;   // Apuesta inicial
+    
     Casilla1 c1;
     Casilla2 c2;
     Casilla3 c3;
@@ -45,9 +45,9 @@ public class DiseñoMaquina extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         bt_iniciar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        CantApostar = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        IngresoFondos = new javax.swing.JTextField();
         CasillaIco1 = new javax.swing.JLabel();
         CasillaIco2 = new javax.swing.JLabel();
         CasillaIco3 = new javax.swing.JLabel();
@@ -81,13 +81,21 @@ public class DiseñoMaquina extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Stencil", 0, 18)); // NOI18N
         jLabel7.setText("CREDITOS A APOSTAR");
 
-        jTextField1.setText("jTextField1");
+        CantApostar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CantApostarActionPerformed(evt);
+            }
+        });
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Stencil", 0, 18)); // NOI18N
         jLabel8.setText("FONDOS");
 
-        jTextField2.setText("jTextField1");
+        IngresoFondos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IngresoFondosActionPerformed(evt);
+            }
+        });
 
         CasillaIco1.setIcon(new javax.swing.ImageIcon("D:\\UNIVERSIDAD\\DEBERES 3° Semestre\\PROGRAMACION III\\prog3-main\\labs\\06\\Tragamonedas\\src\\main\\java\\ICONOS\\Icono1.png")); // NOI18N
 
@@ -172,8 +180,8 @@ public class DiseñoMaquina extends javax.swing.JFrame {
                                 .addComponent(jLabel8)))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(IngresoFondos)
+                            .addComponent(CantApostar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(bt_iniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(39, Short.MAX_VALUE))
@@ -206,11 +214,11 @@ public class DiseñoMaquina extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(IngresoFondos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(CantApostar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(70, 70, 70))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(bt_iniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -233,24 +241,32 @@ public class DiseñoMaquina extends javax.swing.JFrame {
 
     private void bt_iniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_iniciarActionPerformed
         
-        int timems = 100;
+        fondos = Integer.parseInt(IngresoFondos.getText()); // Otra opción es asignar un valor inicial aquí
+        apuesta = Integer.parseInt(CantApostar.getText()); 
+        if (fondos >= apuesta) {
+            
+            int timems = 100;
         
-        c1 = new Casilla1(timems);
-        c2 = new Casilla2(timems);
-        c3 = new Casilla3(timems);
-        c4 = new Casilla4(timems);
+            c1 = new Casilla1(timems);
+            c2 = new Casilla2(timems);
+            c3 = new Casilla3(timems);
+            c4 = new Casilla4(timems);
         
-        Resultadoc1 = false;
-        Resultadoc2 = false;
-        Resultadoc3 = false;
-        Resultadoc4 = false;
+            Resultadoc1 = false;
+            Resultadoc2 = false;
+            Resultadoc3 = false;
+            Resultadoc4 = false;
 
-        bt_iniciar.setEnabled(false);
+            bt_iniciar.setEnabled(false);
         
-        c1.start();
-        c2.start();
-        c3.start();
-        c4.start();
+            c1.start();
+            c2.start();
+            c3.start();
+            c4.start();   
+                   
+        } else {
+            JOptionPane.showMessageDialog(null, "No tienes fondos suficientes para realizar la apuesta.");
+    }
         
     }//GEN-LAST:event_bt_iniciarActionPerformed
 
@@ -281,6 +297,24 @@ public class DiseñoMaquina extends javax.swing.JFrame {
         Resultadoc4 = true;
         DarResultado();
     }//GEN-LAST:event_Detener4ActionPerformed
+
+    private void IngresoFondosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresoFondosActionPerformed
+        // TODO add your handling code here:
+        try {
+            fondos = Integer.parseInt(IngresoFondos.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Ingresa un valor válido para los fondos.");
+        }
+    }//GEN-LAST:event_IngresoFondosActionPerformed
+
+    private void CantApostarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CantApostarActionPerformed
+        // TODO add your handling code here:
+        try {
+            apuesta = Integer.parseInt(CantApostar.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Ingresa un valor válido para la apuesta.");
+    }
+    }//GEN-LAST:event_CantApostarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -318,6 +352,7 @@ public class DiseñoMaquina extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField CantApostar;
     public static javax.swing.JLabel CasillaIco1;
     public static javax.swing.JLabel CasillaIco2;
     public static javax.swing.JLabel CasillaIco3;
@@ -330,13 +365,12 @@ public class DiseñoMaquina extends javax.swing.JFrame {
     private javax.swing.JLabel Ico2;
     private javax.swing.JLabel Ico3;
     private javax.swing.JLabel Ico4;
+    private javax.swing.JTextField IngresoFondos;
     private javax.swing.JButton bt_iniciar;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 
 private void DarResultado(){
@@ -352,10 +386,17 @@ private void DarResultado(){
                 CasillaIco1.getIcon().toString().equals(CasillaIco3.getIcon().toString()) && 
                 CasillaIco1.getIcon().toString().equals(CasillaIco4.getIcon().toString())){
             
+            fondos += apuesta * 2;
             JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");   
         }else{
+            
+            fondos = fondos - apuesta;
             JOptionPane.showMessageDialog(null, "VUELVE A INTENTARLO");
         }
+        
+        IngresoFondos.setText(Integer.toString(fondos));
+        CantApostar.setText(Integer.toString(apuesta));
+        bt_iniciar.setEnabled(true);
     }
 }
 
